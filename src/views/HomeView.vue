@@ -44,6 +44,51 @@
           </div>
         </div>
       </div>
+      <div class="skills">
+        <h2>Skills</h2>
+        <div class="skills-box">
+          <div class="html skill">
+          <img src="../assets/skills/html.svg">
+          HTML
+        </div>
+        <div class="css skill">
+          <img src="../assets/skills/css.svg">
+          CSS
+        </div>
+        <div class="js skill">
+          <img src="../assets/skills/js.svg">
+          JavaScript
+        </div>
+        <div class="vuejs skill">
+          <img src="../assets/skills/vuejs.svg">
+          VueJS
+        </div>
+        <div class="nodejs skill">
+          <img src="../assets/skills/nodejs.svg">
+          NodeJS
+        </div>
+        <div class="mysql skill">
+          <img src="../assets/skills/mysql.svg">
+          MySQL
+        </div>
+        <div class="git skill">
+          <img src="../assets/skills/git.svg">
+          Git/GitHub
+        </div>
+        <div class="vba skill">
+          <img src="../assets/skills/vba.svg">
+          VBA
+        </div>
+        <div class="powerbi skill">
+          <img src="../assets/skills/powerbi.svg">
+          PowerBI
+        </div>
+        <div class="figma skill">
+          <img src="../assets/skills/figma.svg">
+          UI/UX
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -127,6 +172,36 @@
   }
   .CVDownload img{
     margin-right: 10px;
+  }
+  .skills{
+    margin-top: 20px;
+    max-width: 800px;
+  }
+  .skills h2{
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  .skills-box{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+  }
+  .skill{
+    background: #003CD7;
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+  }
+  .skill img{
+    margin-right: 5px;
+    max-width: 25px;
   }
 </style>
 

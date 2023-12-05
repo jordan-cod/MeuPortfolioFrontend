@@ -89,6 +89,7 @@
         </div>
         </div>
       </div>
+      <img src="../assets/bg.svg" class="bg">
     </div>
   </div>
 </template>
@@ -202,6 +203,14 @@
   .skill img{
     margin-right: 5px;
     max-width: 25px;
+  }
+  .bg{
+    position:relative;
+    right: -750px;
+    top: -310px;
+    z-index: -1;
+
+    max-width: 500px;
   }
 </style>
 

@@ -12,7 +12,7 @@
                 </ul>
             </nav>
         </div>
-        <img src="../assets/HeaderSVG.svg" class="headerSVG">
+
     </header>
 </template>
 

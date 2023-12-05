@@ -14,4 +14,7 @@ a{
 body{
     font-family: 'Ubuntu', sans-serif;
     width: 100%;
+    background: url(./assets/HeaderSVG.svg);
+    background-repeat: no-repeat;
+    background-position: 0px 60px;
 }

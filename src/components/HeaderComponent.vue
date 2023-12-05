@@ -12,7 +12,7 @@
                 </ul>
             </nav>
         </div>
-        <img src="../assets/HeaderSVG.svg">
+        <img src="../assets/HeaderSVG.svg" class="headerSVG">
     </header>
 </template>
 
@@ -22,15 +22,27 @@
         height: 60px;
         background: #23272A;
         color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header .headerSVG{
+        position: absolute;
+        top: 60px;
     }
     header div{
         width: 80%;
-    }
-    header div, header div nav{
+        max-width: 1366px;
         height: 100%;
         display: flex;
         align-items: center;
         flex-direction: row-reverse;
+    }
+    header div nav{
+        height: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
     }
     header ul {
         height: 100%;

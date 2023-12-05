@@ -20,9 +20,8 @@
       </div>
       <div class="ME-2">
         <p>I'm 20 years old and based in Minas Gerais, Brazil.</p>
-        <p>No último ano estive desenvolvendo websites em projetos pessoais no intuito de compreender todos<br>
-          os processos que posso enfrentar em um projeto real. Atualmente meu principal projeto é este portfólio<br>
-          que foi desenvolvido utilizando tecnologias web como : VueJS, Node e MySql.
+        <p>In the last year, i've been developing websites in some personal projects with the objetive being leaning and understanding all the processes that i can use to beat any problem i see in real projects.
+            By now, my main project is this portfolio that i've developed using web technologies like: VueJS, Node, MySql and more.
         </p>
       </div>
       <div class="languages">
@@ -211,6 +210,48 @@
     z-index: -1;
 
     max-width: 500px;
+  }
+  @media screen and (max-width: 1400px){
+    .bg{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 980px){
+    .skills-box{
+    grid-template-columns: repeat(7, 1fr);
+  }
+  }
+  @media screen and (max-width: 850px){
+    .skills-box{
+    grid-template-columns: repeat(6, 1fr);
+  }
+    .home .about .ME{
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+  @media screen and (max-width: 750px){
+    .skills-box{
+    grid-template-columns: repeat(5, 1fr);
+  }
+  }
+  @media screen and (max-width: 500px){
+    .skill{
+      width: 85px;
+      font-size: 10px;
+    }
+    .skills-box{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  }
+  @media screen and (max-width: 330px){
+    .skill img{
+    margin-right: 5px;
+    max-width: 15px;
+  }
+  .languages-box, .pt-br, .english{
+    font-size: 14px;
+  }
   }
 </style>
 

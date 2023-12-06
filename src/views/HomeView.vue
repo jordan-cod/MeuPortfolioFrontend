@@ -97,9 +97,11 @@
       </div>
       <div class="projects-box" v-else>
         <h2>Projects</h2>
-        <RouterLink v-for="project in projects" :key="project.id" to="" >
+        <RouterLink v-for="project in projects" :key="project.id" :to="{path: `/project/${project.id}`}">
           <article>
-            <div class="article-img"></div>
+            <div class="article-img">
+              <img :src="project.img"> 
+            </div>
             <h3>{{ project.title }}</h3>
             <p>{{project.description}}</p>
           </article>
@@ -405,9 +407,8 @@ export default {
   },
   data () {
     return {
-      projects: [
-        
-      ]
+      projects: [],
+      ClickedProject: {}
     }
   },
   beforeMount(){

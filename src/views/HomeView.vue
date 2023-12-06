@@ -247,7 +247,6 @@
     padding-bottom: 50px;
   }
   .projects-box{
-    padding-top: 130px;
     margin-bottom: 80px;
     width: 80%;
     max-width: 1180px;

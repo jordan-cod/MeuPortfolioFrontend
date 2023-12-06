@@ -17,4 +17,5 @@ body{
     background: url(./assets/HeaderSVG.svg);
     background-repeat: no-repeat;
     background-position: 0px 60px;
+    background-color: #f1f1f1;
 }

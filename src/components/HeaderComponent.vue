@@ -16,7 +16,7 @@
     </header>
 </template>
 
-<style>
+<style scoped>
     header{
         width: 100%;
         height: 60px;
@@ -57,12 +57,11 @@
         padding: 16px 0px;
     }
     header nav a:hover{
-        color: #0015FF;
+        color: #266afc;
     }
     header nav a.router-link-exact-active {
-    color: #0015FF;
+    color: #266afc;
+    border-bottom: 3px solid #266afc;
     }
-    header nav a.router-link-exact-active {
-    border-bottom: 3px solid #0015FF;
-    }
+
 </style>

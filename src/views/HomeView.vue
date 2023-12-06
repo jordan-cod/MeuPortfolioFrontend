@@ -91,38 +91,21 @@
       <img src="../assets/bg.svg" class="bg">
     </section>
     <section class="projects">
-      <div class="projects-box">
+      <div class="projects-box-flex" v-if="projects.length == 0">
         <h2>Projects</h2>
-        <RouterLink to="/">
+        <img src="../assets/404.svg" class="NotFound">
+      </div>
+      <div class="projects-box" v-else>
+        <h2>Projects</h2>
+        <RouterLink v-for="project in projects.slice(0, 4)" :key="project.id" to="" >
           <article>
             <div class="article-img"></div>
-            <h3>Project title</h3>
-            <p>Project description</p>
-          </article>
-        </RouterLink>
-        <RouterLink to="/">
-          <article>
-            <div class="article-img"></div>
-            <h3>Project title</h3>
-            <p>Project description</p>
-          </article>
-        </RouterLink>
-        <RouterLink to="/">
-          <article>
-            <div class="article-img"></div>
-            <h3>Project title</h3>
-            <p>Project description</p>
-          </article>
-        </RouterLink>
-        <RouterLink to="/">
-          <article>
-            <div class="article-img"></div>
-            <h3>Project title</h3>
-            <p>Project description</p>
+            <h3>{{ project.title }}</h3>
+            <p>{{project.description}}</p>
           </article>
         </RouterLink>
       </div>
-      <RouterLink to="/projects" class="viewMore">View more</RouterLink>
+      <RouterLink to="" class="viewMore">View More</RouterLink>
     </section>
   </div>
 </template>
@@ -315,6 +298,24 @@
   .viewMore:hover{
     transform: scale(1.1);
   }
+  .projects-box-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 130px;
+    margin-bottom: 80px;
+    width: 80%;
+    max-width: 1180px;
+  }
+  .projects-box-flex h2{
+    align-self: flex-start;
+    margin-bottom: 50px;
+  }
+  .NotFound{
+    width: 350px;
+    max-width: 100%;
+  }
   @media screen and (max-width: 1400px){
     .bg{
       display: none;
@@ -390,6 +391,13 @@
 
 export default {
   name: 'HomeView',
-  components: {}
+  components: {},
+  data () {
+    return {
+      projects: [
+        
+      ]
+    }
+  }
 }
 </script>

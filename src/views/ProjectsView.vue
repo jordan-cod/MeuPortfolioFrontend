@@ -52,6 +52,7 @@
         margin-bottom: 50px;
     }
     .project-card{
+        min-width: 300px;
         width: 100%;
         height: 350px;
         display: flex;
@@ -65,6 +66,40 @@
     .NotFound{
         width: 350px;
         max-width: 100%;
+    }
+    @media screen and (max-width: 1400px){
+        .projects-box-grid{
+        grid-template-columns: repeat(3, 1fr);
+        }
+        .projects-box-grid h2{
+        grid-column: 1/4;
+        margin-bottom: 50px;
+        }
+    }
+    @media screen and (max-width: 1024px){
+        .projects-box-grid{
+        grid-template-columns: repeat(2, 1fr);
+        }
+        .projects-box-grid h2{
+        grid-column: 1/3;
+        margin-bottom: 50px;
+        }
+    }
+    @media screen and (max-width: 1024px){
+        .projects-box-grid{
+        grid-template-columns: repeat(1, 1fr);
+        }
+        .projects-box-grid h2{
+        grid-column: 1/2;
+        margin-bottom: 50px;
+        }
+    }
+    @media screen and (max-width: 350px){
+        .project-card{
+        min-width: 250px;
+        width: 100%;
+        height: 350px;
+        }
     }
 </style>
 

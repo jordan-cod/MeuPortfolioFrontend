@@ -368,7 +368,7 @@
     grid-template-columns: repeat(5, 1fr);
   }
   }
-  @media screen and (max-width: 600px){
+  @media screen and (max-width: 675px){
     .projects-box{
       display: flex;
       flex-direction: column;

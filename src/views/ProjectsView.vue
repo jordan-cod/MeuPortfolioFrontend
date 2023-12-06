@@ -18,7 +18,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .projects-box{
         margin-top: 140px;
         width: 100%;
@@ -42,6 +42,7 @@
     }
     .projects-box-grid{
         display: grid;
+        justify-items: center;
         grid-template-columns: repeat(4, 1fr);
         row-gap: 20px;
         column-gap: 20px;
@@ -52,12 +53,13 @@
     }
     .project-card{
         width: 300px;
-        height: auto;
+        height: 450px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         border: 1px solid black;
-        padding: 5px;
+        padding: 5px 15px;
         border-radius: 5px;
     }
     .project-card img{
@@ -91,7 +93,7 @@
         margin-bottom: 50px;
         }
     }
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 1150px){
         .projects-box-grid{
         grid-template-columns: repeat(2, 1fr);
         }
@@ -100,11 +102,14 @@
         margin-bottom: 50px;
         }
     }
-    @media screen and (max-width: 350px){
-        .project-card{
-        min-width: 250px;
-        width: 100%;
-        height: 350px;
+    @media screen and (max-width: 750px){
+        .projects-box-grid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+        .projects-box-grid h2{
+        margin-bottom: 50px;
         }
     }
 </style>

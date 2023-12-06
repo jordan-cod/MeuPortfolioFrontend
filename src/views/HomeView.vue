@@ -245,10 +245,11 @@
   }
   .projects-box{
     margin-bottom: 80px;
-    width: 80%;
-    max-width: 1180px;
+    width: 85%;
+    max-width: 1200px;
     display: grid;
-    column-gap: 50px;
+    justify-items: center;
+    column-gap: 10px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
   }
@@ -259,6 +260,7 @@
   .projects-box h2{
     margin-bottom: 50px;
     grid-column: 1/5;
+    justify-self: left;
   }
   .viewMore {
     padding: 15px 25px;
@@ -294,18 +296,21 @@
   }
   .project-card{
         width: 300px;
-        height: auto;
+        height: 450px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid black;
-        padding: 5px;
+        justify-content: space-between;
+        border: 1px solid rgb(156, 156, 156);
+        padding: 5px 15px;
         border-radius: 5px;
+        margin-bottom: 20px;
     }
     .project-card img{
         width: 290px;
         height: 250px;
         margin-bottom: 15px;
+        border-radius: 10px;
     }
     .project-card h3{
         margin-bottom: 15px;

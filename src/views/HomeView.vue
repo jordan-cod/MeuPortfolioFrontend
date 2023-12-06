@@ -241,6 +241,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 50px;
   }
   .projects-box{
     padding-top: 130px;

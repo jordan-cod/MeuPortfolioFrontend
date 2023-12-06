@@ -97,17 +97,14 @@
       </div>
       <div class="projects-box" v-else>
         <h2>Projects</h2>
-        <RouterLink v-for="project in projects" :key="project.id" :to="{path: `/project/${project.id}`}">
-          <article>
-            <div class="article-img">
-              <img :src="project.img"> 
-            </div>
+          <article v-for="project in projects.slice(0,4)" :key="project.id" class="project-card">
+            <img :src="project.img"> 
             <h3>{{ project.title }}</h3>
-            <p>{{project.description}}</p>
+            <p>{{project.descript}}</p>
+            <RouterLink :to="{path: `/project/${project.id}`}" class="view">View</RouterLink>
           </article>
-        </RouterLink>
       </div>
-      <RouterLink to="" class="viewMore">View More</RouterLink>
+      <RouterLink to="/projects" class="viewMore">View More</RouterLink>
     </section>
   </div>
 </template>
@@ -263,30 +260,6 @@
     margin-bottom: 50px;
     grid-column: 1/5;
   }
-  .projects-box article{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    max-height: 450px;
-  }
-  .projects-box article h3{
-    margin-bottom: 10px;
-    max-width: 200px;
-  }
-  .projects-box article p{
-    max-width: 200px;
-  }
-  .article-img{
-    height: 200px;
-    min-width: 200px;
-    width: 100%;
-    max-width: 100%;
-    background: red;
-    border-radius: 15px;
-    margin-bottom: 10px;
-  }
   .viewMore {
     padding: 15px 25px;
     border-radius: 15px;
@@ -319,6 +292,34 @@
     width: 350px;
     max-width: 100%;
   }
+  .project-card{
+        width: 300px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .project-card img{
+        width: 290px;
+        height: 250px;
+        margin-bottom: 15px;
+    }
+    .project-card h3{
+        margin-bottom: 15px;
+    }
+    .project-card p{
+        margin-bottom: 15px;
+    }
+    .project-card .view{
+        background: #0015FF;
+        color: white;
+        padding: 10px 30px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+    }
   @media screen and (max-width: 1400px){
     .bg{
       display: none;
@@ -364,11 +365,12 @@
   }
   @media screen and (max-width: 600px){
     .projects-box{
-      grid-template-columns: repeat(1, 1fr);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .projects-box h2{
     margin-bottom: 50px;
-    grid-column: 1/2;
   }
     .skill{
       width: 85px;
@@ -406,7 +408,6 @@ export default {
   data () {
     return {
       projects: [],
-      ClickedProject: {}
     }
   },
   beforeMount(){

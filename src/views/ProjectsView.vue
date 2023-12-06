@@ -1,19 +1,18 @@
 <template>
     <div class="projects-box">
         <div class="projects">
-            <div class="projects-box-flex" v-if="projects.length == 0">
+            <div class="projects-box-flex" v-if="projects.length === 0">
                 <h2>Projects</h2>
                 <img src="../assets/404.svg" class="NotFound">
             </div>
             <div class="projects-box-grid" v-else>
                 <h2>Projects</h2>
-                <RouterLink v-for="project in projects" :key="project.id" to="" class="project-card">
-                <article>
-                    <div class="article-img"></div>
+                <article v-for="project in projects" :key="project.id" class="project-card">
+                    <img :src="project.img" class="article-img"/>
                     <h3>{{ project.title }}</h3>
-                    <p>{{project.description}}</p>
+                    <p>{{project.descript}}</p>
+                    <RouterLink :to="{path: `/project/${project.id}`}" class="view">View</RouterLink>
                 </article>
-                </RouterLink>
             </div>
         </div>
     </div>
@@ -52,16 +51,32 @@
         margin-bottom: 50px;
     }
     .project-card{
-        min-width: 300px;
-        width: 100%;
-        height: 350px;
+        width: 300px;
+        height: auto;
         display: flex;
-        justify-content: center;
-    }
-    .project-card{
-        text-decoration: none;
-        color: black;
+        flex-direction: column;
+        align-items: center;
         border: 1px solid black;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .project-card img{
+        width: 290px;
+        height: 250px;
+        margin-bottom: 15px;
+    }
+    .project-card h3{
+        margin-bottom: 15px;
+    }
+    .project-card p{
+        margin-bottom: 15px;
+    }
+    .project-card .view{
+        background: #0015FF;
+        color: white;
+        padding: 10px 30px;
+        border-radius: 10px;
+        margin-bottom: 5px;
     }
     .NotFound{
         width: 350px;
@@ -85,15 +100,6 @@
         margin-bottom: 50px;
         }
     }
-    @media screen and (max-width: 1024px){
-        .projects-box-grid{
-        grid-template-columns: repeat(1, 1fr);
-        }
-        .projects-box-grid h2{
-        grid-column: 1/2;
-        margin-bottom: 50px;
-        }
-    }
     @media screen and (max-width: 350px){
         .project-card{
         min-width: 250px;
@@ -104,17 +110,26 @@
 </style>
 
 <script>
-// @ is an alias to /src
+import axios from 'axios'
 
 export default {
   name: 'ProjectsView',
   components: {},
   data () {
     return {
-      projects: [ {title: "21312"},{title: "231"},{title: "31213"},{title: "3123123"},{title: "2131"},{title: "12313"},{title: "12313"},{title: "12313"},{title: "12313"},{title: "12313"}
-        
-      ]
+      projects: []
     }
+  },
+  methods: {
+    searchAllPage(){
+      axios.get('https://apigabrieljordan.onrender.com/api/projects')
+        .then(response =>{
+          this.projects = response.data.result
+        })
+    }
+  },
+  beforeMount(){
+    this.searchAllPage()
   }
 }
 </script>

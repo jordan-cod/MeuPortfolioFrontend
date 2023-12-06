@@ -97,7 +97,7 @@
       </div>
       <div class="projects-box" v-else>
         <h2>Projects</h2>
-        <RouterLink v-for="project in projects.slice(0, 4)" :key="project.id" to="" >
+        <RouterLink v-for="project in projects" :key="project.id" to="" >
           <article>
             <div class="article-img"></div>
             <h3>{{ project.title }}</h3>
@@ -389,17 +389,29 @@
 </style>
 
 <script>
-// @ is an alias to /src
+import axios from 'axios'
 
 export default {
   name: 'HomeView',
   components: {},
+  methods: {
+    searchAll(){
+      axios.get('http://localhost:3000/api/projects')
+        .then(response =>{
+          this.projects = response.data.result
+          console.log(this.projects)
+        })
+    }
+  },
   data () {
     return {
       projects: [
         
       ]
     }
+  },
+  beforeMount(){
+    this.searchAll()
   }
 }
 </script>

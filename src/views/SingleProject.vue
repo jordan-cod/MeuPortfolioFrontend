@@ -1,7 +1,7 @@
 <template>
     <div class="project">
         <p>{{ this.project.title }}</p>
-        <p>{{ this.project.description }}</p>
+        <p>{{ this.project.descript }}</p>
         <p>{{ this.project.url }}</p>
         <p>{{ this.project.download }}</p>
     </div>
@@ -33,10 +33,9 @@ export default {
     methods: {
 
         fetchProject(){
-            axios.get(`http://localhost:3000/api/project/${this.id}`)
+            axios.get(`https://apigabrieljordan.onrender.com/api/project/${this.id}`)
                 .then(response=>{
                     this.project = response.data.result
-                    console.log(response.data.result)
                 })
             }
     },

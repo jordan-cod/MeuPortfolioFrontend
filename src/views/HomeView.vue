@@ -398,10 +398,9 @@ export default {
   components: {},
   methods: {
     searchAll(){
-      axios.get('http://localhost:3000/api/projects')
+      axios.get('https://apigabrieljordan.onrender.com/api/projects')
         .then(response =>{
           this.projects = response.data.result
-          console.log(this.projects)
         })
     }
   },

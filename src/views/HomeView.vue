@@ -323,8 +323,14 @@
         background: #0015FF;
         color: white;
         padding: 10px 30px;
-        border-radius: 10px;
+        border-radius: 5px;
         margin-bottom: 5px;
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+    }
+    .project-card .view:hover{
+        background: #000b81;
     }
   @media screen and (max-width: 1400px){
     .bg{

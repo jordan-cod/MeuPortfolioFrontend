@@ -182,15 +182,14 @@
 <script>
 import axios from 'axios';
 export default {
+    name: 'singleProject',
     data() {
         return {
             project: [],
-            id: this.$route.params.id
-            
+            id: this.$route.params.id            
         }
     },
     methods: {
-
         fetchProject(){
             axios.get(`https://apigabrieljordan.onrender.com/api/project/${this.id}`)
                 .then(response=>{

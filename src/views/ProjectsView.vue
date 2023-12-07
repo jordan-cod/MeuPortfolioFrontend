@@ -121,26 +121,15 @@
 </style>
 
 <script>
-import axios from 'axios'
 
 export default {
   name: 'ProjectsView',
+  props: {
+    projects: Array
+  },
   components: {},
   data () {
-    return {
-      projects: []
-    }
-  },
-  methods: {
-    searchAllPage(){
-      axios.get('https://apigabrieljordan.onrender.com/api/projects')
-        .then(response =>{
-          this.projects = response.data.result
-        })
-    }
-  },
-  beforeMount(){
-    this.searchAllPage()
+    return {}
   }
 }
 </script>

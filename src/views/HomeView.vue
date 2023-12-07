@@ -409,29 +409,15 @@
 </style>
 
 <script>
-import axios from 'axios'
 
 export default {
   name: 'HomeView',
+  props: {
+    projects: Array
+  },
   components: {},
-  methods: {
-    searchAll(){
-      axios.get('https://apigabrieljordan.onrender.com/api/projects')
-        .then(response =>{
-          this.projects = response.data.result
-        })
-    }
-  },
   data () {
-    return {
-//      projects: [],
-      props: {
-        projects: []
-      }
-    }
-  },
-//  beforeMount(){
-//   this.searchAll()
-//  }
+    return {}
+  }
 }
 </script>

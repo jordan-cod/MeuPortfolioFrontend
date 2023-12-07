@@ -424,11 +424,14 @@ export default {
   },
   data () {
     return {
-      projects: []
+//      projects: [],
+      props: {
+        projects: []
+      }
     }
   },
-  beforeMount(){
-    this.searchAll()
-  }
+//  beforeMount(){
+//   this.searchAll()
+//  }
 }
 </script>

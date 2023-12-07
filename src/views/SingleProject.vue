@@ -1,9 +1,14 @@
 <template>
     <div class="project">
        <div class="project-box">
+          <div class="title-box">
             <div>
                 <h1>{{ project.title }}</h1>
             </div>
+            <div>
+              <p class="tecnologies">{{ project.tecnologies }}</p>
+            </div>
+          </div>
             <div class="carrousel">
                 <div class="display">
                     <div class="display-back">
@@ -29,6 +34,7 @@
                 <div class="btns">
                     <a :href="this.project.url" target="_blank" class="btn">GitHub</a>
                     <a :href="this.project.download" class="btn">Download</a>
+                    <a :href="this.project.live_url" class="btn live" target="_blank">Live project</a>
                 </div>
             </div>
        </div>
@@ -49,6 +55,14 @@
   }
   .project-box div:first-child h1{
     margin-bottom: 20px;
+  }
+  .title-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tecnologies{
+    font-weight: 700;
   }
   .display{
     width: 100%;
@@ -113,10 +127,14 @@
     padding: 10px;
     border-radius: 10px;
     width: 100px;
+    height: 35px;
     text-align: center;
   }
   .btn:hover{
     background-color: rgb(1, 1, 133);
+  }
+  .live{
+    font-size: 14px;
   }
   @media screen and (max-width: 768px){
     .project-about{
@@ -129,6 +147,13 @@
     }
     .display{
         display: none;
+    }
+    .title-box{
+      flex-direction: column;
+      margin-bottom: 10px ;
+    }
+    .tecnologies{
+      font-size: 13px;
     }
     .circles{
         display: none;

@@ -13,6 +13,11 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </div>
                 </div>
+                <div class="display-images-mobile">
+                    <div class="display-mobile"></div>
+                    <div class="display-mobile"></div>
+                    <div class="display-mobile"></div>
+                </div>
                 <div class="circles">
                     <span class="circle"></span>
                     <span class="circle circle-selected"></span>
@@ -36,7 +41,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 120px;
+    margin: 120px 0px;
   }
   .project-box{
     width: 80%;
@@ -114,6 +119,40 @@
   }
   .btn:hover{
     background-color: rgb(1, 1, 133);
+  }
+  @media screen and (max-width: 768px){
+    .project-about{
+        flex-direction: column-reverse;
+    }
+    .btns{
+        flex-direction: row-reverse;
+        column-gap: 20px;
+        margin-bottom: 50px;
+    }
+    .display{
+        display: none;
+    }
+    .circles{
+        display: none;
+    }
+    .display-images-mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        row-gap: 15px;
+    }
+    .display-mobile{
+        width: 300px;
+        height: 300px;
+        background: gray;
+    }
+    .btns{
+        justify-content: center;
+        flex-direction: row;
+    }
+        
   }
 </style>
 

@@ -123,6 +123,7 @@
     width: 80%;
     max-width: 1180px;
     margin-bottom: 50px;
+    height: 450px;
   }
   .home .about .ME h1{
     font-size: 24px;
@@ -336,6 +337,9 @@
     .bg{
       display: none;
     }
+    .home .about{
+      height: auto;
+    }
     .projects-box{
     margin-bottom: 80px;
     width: 90%;
@@ -381,31 +385,44 @@
   }
   }
   @media screen and (max-width: 675px){
-    .projects-box{
+    .home .about, .projects-box{
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+    .home .about .ME, .home .about .skills{
+      width: 100%;
+      align-items: center;
+    }
+    .home .about .languages{
+      width: 100%;
+    }
+    .home .about .skills .skills-box{
+      justify-items: center;
+    }
     .projects-box h2{
     margin-bottom: 50px;
-  }
+    }
     .skill{
       width: 85px;
       font-size: 10px;
     }
     .skills-box{
     grid-template-columns: repeat(3, 1fr);
-  }
-  }
-  @media screen and (max-width: 330px){
-    .skill img{
-    margin-right: 5px;
-    max-width: 15px;
-  }
-  .languages-box, .pt-br, .english{
-    font-size: 14px;
-  }
-  }
+    }
+    }
+    @media screen and (max-width: 330px){
+      .home .about{
+        width: 90%;
+      }
+      .skill img{
+      margin-right: 5px;
+      max-width: 15px;
+    }
+    .languages-box, .pt-br, .english{
+      font-size: 14px;
+    }
+    }
 </style>
 
 <script>

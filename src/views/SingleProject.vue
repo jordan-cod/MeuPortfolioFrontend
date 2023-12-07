@@ -55,9 +55,7 @@
     height: 400px;
     background: rgb(59, 59, 59);
     margin-bottom: 5px;
-
     display: flex;
-    justify-content: space-between;
   }
   .display-back, .display-next{
     width: 50px;

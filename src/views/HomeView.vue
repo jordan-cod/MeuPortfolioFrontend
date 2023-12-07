@@ -242,6 +242,7 @@
     align-items: center;
     margin-bottom: 20px;
     padding-bottom: 50px;
+    padding-top: 100px;
   }
   .projects-box{
     margin-bottom: 80px;
@@ -329,18 +330,23 @@
     .bg{
       display: none;
     }
+    .projects-box{
+    margin-bottom: 80px;
+    width: 90%;
+    max-width: 1250px;
   }
-  @media screen and (max-width: 1080px){
+  }
+  @media screen and (max-width: 1300px){
     .projects-box{
       grid-template-columns: repeat(3, 1fr);
-    }
-    .projects-box p{
-      margin-bottom: 50px;
     }
     .projects-box h2{
     margin-bottom: 50px;
     grid-column: 1/4;
-  }
+    }
+    .projects-box p{
+      margin-bottom: 50px;
+    }
   }
   @media screen and (max-width: 980px){
     .skills-box{

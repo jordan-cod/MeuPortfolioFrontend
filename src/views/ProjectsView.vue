@@ -1,13 +1,16 @@
 <template>
     <div class="projects-box">
         <div class="projects">
+            <h2>Projects</h2>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" v-model="search" class="search" @keyup="searchArray" placeholder="Search a project">
+            </div>
             <div class="projects-box-flex" v-if="projects.length === 0">
-                <h2>Projects</h2>
                 <img src="../assets/404.svg" class="NotFound">
             </div>
             <div class="projects-box-grid" v-else>
-                <h2>Projects</h2>
-                <ProjectCard :project="project" v-for="project in projects" :key="project.id"></ProjectCard>
+                <ProjectCard :project="project" v-for="project in filteredProjects" :key="project.id"></ProjectCard>
             </div>
         </div>
     </div>
@@ -15,7 +18,7 @@
 
 <style scoped>
     .projects-box{
-        padding-top: 140px;
+        padding-top: 80px;
         width: 100%;
         min-height: 100vh;
         display: flex;
@@ -35,6 +38,27 @@
     .projects-box-flex h2{
         align-self: self-start;
         margin-bottom: 100px;
+    }
+    .search-box{
+        margin: 10px 0px 30px 0px;
+    }
+    .fa-magnifying-glass{
+        font-size: 25px;
+        position: relative;
+        top: 33px;
+        left: 10px;
+        color: gray;
+    }
+    .search{
+        grid-column: 1/6;
+        width: 100%;
+        padding: 10px 45px;
+        outline: none;
+        border: 2px solid var(--blue);
+        transition: border 0.2s linear;
+    }
+    .search:focus{
+        border: 2px solid var(--orange);
     }
     .projects-box-grid{
         display: grid;
@@ -134,7 +158,17 @@ export default {
   },
   components: {ProjectCard},
   data () {
-    return {}
+    return {
+        search: '',
+    }
+  },
+  methods: {},
+  computed: {
+    filteredProjects: function(){
+        return this.projects.filter((project) =>{
+            return project.title.toLowerCase().match(this.search.toLocaleLowerCase())
+        })
+    }
   }
 }
 </script>

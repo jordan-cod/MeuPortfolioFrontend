@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 120px 0px;
+    margin: 100px 0px;
   }
   .project-title{
     color: var(--blue);

@@ -73,7 +73,7 @@
     justify-content: center;
     align-items: center;
 
-    margin-top: 150px;
+    margin-top: 100px;
   }
   .home .about{
     width: 80%;

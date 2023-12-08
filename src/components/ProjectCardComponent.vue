@@ -26,7 +26,6 @@
         transition: transform 0.1s linear;
         color: var(--font-black);
 
-        font-family: 'Public Sans';
     }
     .project-card img{
         width: 300px;

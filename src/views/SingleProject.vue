@@ -3,10 +3,12 @@
        <div class="project-box">
           <div class="title-box">
             <div>
-                <h1>{{ project.title }}</h1>
+                <h1 class="project-title">{{ project.title }}</h1>
             </div>
             <div>
-              <p class="tecnologies">{{ project.tecnologies }}</p>
+              <ul class="tecnologies">
+                <li v-for="(tecnologie, index) in tecnologies" :key="index">{{ tecnologie }}</li>
+              </ul>
             </div>
           </div>
             <div class="carrousel">
@@ -49,20 +51,40 @@
     align-items: center;
     margin: 120px 0px;
   }
+  .project-title{
+    color: var(--blue);
+  }
   .project-box{
     width: 80%;
     max-width: 1200px;
   }
-  .project-box div:first-child h1{
-    margin-bottom: 20px;
-  }
   .title-box{
     display: flex;
     align-items: center;
+    width: 100%;
+    column-gap: 20px;
     justify-content: space-between;
+    margin-bottom: 5px;
   }
   .tecnologies{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    column-gap: 10px;
+    flex-wrap: wrap;
+  }
+  .tecnologies li{
+    background: var(--orange);
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    color: white;
     font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .display{
     width: 100%;
@@ -138,6 +160,25 @@
   .live{
     font-size: 14px;
   }
+  @media screen and (max-width: 1050px){
+    .title-box{
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 815px){
+    .title-box{
+      width: 100%;
+      justify-content: center;
+    }
+    .title-box div:last-child{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tecnologies{
+      width: 80%;
+    }
+  }
   @media screen and (max-width: 768px){
     .project-about{
         flex-direction: column-reverse;
@@ -151,11 +192,11 @@
         display: none;
     }
     .title-box{
-      flex-direction: column;
       margin-bottom: 10px ;
     }
     .tecnologies{
       font-size: 13px;
+      width: 100%;
     }
     .circles{
         display: none;
@@ -176,6 +217,7 @@
     .btns{
         justify-content: center;
         flex-direction: row;
+        margin-bottom: 50px;
     }
     @media screen and (max-width: 450px){
       .project-box{
@@ -184,8 +226,12 @@
       .live{
         font-size: 12px;
       }
+    }  
+  }
+  @media screen and (max-width: 360px){
+    .tecnologies{
+      justify-content: space-evenly;
     }
-        
   }
 </style>
 
@@ -199,7 +245,8 @@ export default {
     data() {
         return {
             project: [],
-            id: this.$route.params.id            
+            id: this.$route.params.id,
+            tecnologies: []            
         }
     },
     methods: {
@@ -207,6 +254,7 @@ export default {
             axios.get(`https://apigabrieljordan.onrender.com/api/project/${this.id}`)
                 .then(response=>{
                     this.project = response.data.result
+                    this.tecnologies = this.project.tecnologies.split(',')
                 })
             }
     },

@@ -3,8 +3,19 @@
         <div class="projects">
             <h2>Projects</h2>
             <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" v-model="search" class="search" @keyup="searchArray" placeholder="Search a project">
+                <div class="search-bar">
+                    <input type="text" v-model="search" class="search" @keyup="searchArray" placeholder="Search a project">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <select v-model="filter" class="selectBox">
+                    <option value = "" disabled selected>Filter</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="vuejs">VueJS</option>
+                    <option value="nodejs">NodeJs</option>
+                    <option value="mysql">MySql</option>
+                </select>
             </div>
             <div class="projects-box-flex" v-if="projects.length === 0">
                 <img src="../assets/404.svg" class="NotFound">
@@ -41,23 +52,38 @@
     }
     .search-box{
         margin: 10px 0px 30px 0px;
+        display: flex;
+        justify-content: center;
+    }
+    .search-bar{
+        width: 100%;
     }
     .fa-magnifying-glass{
         font-size: 25px;
         position: relative;
-        top: 33px;
+        top: -31px;
         left: 10px;
         color: gray;
     }
     .search{
         grid-column: 1/6;
         width: 100%;
-        padding: 10px 45px;
+        padding: 10px 15px 10px 45px;
         outline: none;
         border: 2px solid var(--blue);
         transition: border 0.2s linear;
     }
     .search:focus{
+        border: 2px solid var(--orange);
+    }
+    .selectBox{
+        height: 39px;
+        border: 2px solid var(--blue);
+        margin-left: 5px;
+        padding: 0px 10px;
+        color: var(--blue);
+    }
+    .selectBox:focus{
         border: 2px solid var(--orange);
     }
     .projects-box-grid{
@@ -160,6 +186,7 @@ export default {
   data () {
     return {
         search: '',
+        filter: ''
     }
   },
   methods: {},

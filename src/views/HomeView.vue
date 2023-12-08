@@ -46,46 +46,7 @@
       <div class="skills">
         <h2>Skills</h2>
         <div class="skills-box">
-          <div class="html skill">
-            <i class="fa-brands fa-html5 fa-2xl"></i>
-          HTML
-        </div>
-        <div class="css skill">
-          <i class="fa-brands fa-css3-alt fa-2xl"></i>
-          CSS
-        </div>
-        <div class="js skill">
-          <i class="fa-brands fa-js fa-xl"></i>
-          JavaScript
-        </div>
-        <div class="vuejs skill">
-          <i class="fa-brands fa-vuejs fa-2xl"></i>
-          VueJS
-        </div>
-        <div class="nodejs skill">
-          <i class="fa-brands fa-node-js fa-2xl"></i>
-          NodeJS
-        </div>
-        <div class="mysql skill">
-          <i class="fa-solid fa-database fa-2xl"></i>
-          MySQL
-        </div>
-        <div class="git skill">
-          <i class="fa-brands fa-git-alt fa-xl"></i>
-          Git/GitHub
-        </div>
-        <div class="vba skill">
-          <i class="fa-solid fa-laptop-code fa-2xl"></i>
-          VBA
-        </div>
-        <div class="powerbi skill">
-          <i class="fa-solid fa-chart-simple fa-2xl"></i>
-          PowerBI
-        </div>
-        <div class="figma skill">
-          <i class="fa-brands fa-figma fa-2xl"></i>
-          UI/UX
-        </div>
+          <skillComponent :skill="skill" v-for="skill in skills" :key="skill.name"/>
         </div>
       </div>
       <img src="../assets/bg.svg" class="bg">
@@ -210,21 +171,6 @@
     grid-template-columns: repeat(8, 1fr);
     row-gap: 10px;
     column-gap: 10px;
-  }
-  .skill{
-    background: var(--blue);
-    width: 100px;
-    height: 40px;
-    border-radius: 15px;
-    color: white;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-  }
-  .skill i{
-    margin-right: 5px;
   }
   .bg{
     position:relative;
@@ -394,14 +340,68 @@
 
 <script>
 import ProjectCard from '../components/ProjectCardComponent.vue'
+import skillComponent from '@/components/skillComponent.vue';
 export default {
   name: 'HomeView',
   props: {
     projects: Array
   },
-  components: {ProjectCard},
+  components: {ProjectCard, skillComponent},
   data () {
-    return {}
+    return {
+    skills: [
+      {
+        name: 'Html',
+        class:'html skill',
+        iClass: 'fa-brands fa-html5 fa-2xl'
+      },
+      {
+        name: 'CSS',
+        class: 'css skill',
+        iClass:'fa-brands fa-css3-alt fa-2xl'
+      },
+      {
+        name: 'JavaScipt',
+        class:'vuejs skill',
+        iClass:'fa-brands fa-js fa-xl'
+      },
+      {
+        name: 'VueJS',
+        class:'vuejs skill',
+        iClass:'fa-brands fa-vuejs fa-2xl'
+      },
+      {
+        name: 'NodeJS',
+        class:'nodejs skill',
+        iClass: 'fa-brands fa-node-js fa-2xl'
+      },
+      {
+        name: 'MySQL',
+        class:'mysql skill',
+        iClass: 'fa-solid fa-database fa-2xl'
+      },
+      {
+        name: 'Git/GitHub',
+        class:'git skill',
+        iClass: 'fa-brands fa-git-alt fa-xl'
+      },
+      {
+        name: 'VBA',
+        class:'vba skill',
+        iClass: 'fa-solid fa-laptop-code fa-2xl'
+      },
+      {
+        name: 'PowerBI',
+        class:'powerbi skill',
+        iClass: 'fa-solid fa-chart-simple fa-2xl'
+      },
+      {
+        name: 'Figma',
+        class:'figma skill',
+        iClass: 'fa-brands fa-figma fa-2xl'
+      }
+    ]
+    }
   }
 }
 </script>

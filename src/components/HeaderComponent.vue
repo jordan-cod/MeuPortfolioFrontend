@@ -25,7 +25,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-
     }
     header .headerSVG{
         position: absolute;

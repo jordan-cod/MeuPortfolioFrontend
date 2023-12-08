@@ -21,13 +21,13 @@
 
 <style scoped>
     .projects-box{
-        padding-top: 80px;
         width: 100%;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         background: var(--gray);
+        padding-top: 80px;
     }
     .projects{
         width: 80%;

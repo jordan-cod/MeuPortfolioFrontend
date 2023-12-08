@@ -72,8 +72,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 80px;
 
-    margin-top: 100px;
   }
   .home .about{
     width: 80%;

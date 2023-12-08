@@ -20,7 +20,7 @@
       </div>
       <div class="ME-2">
         <p>I'm 20 years old and based in Minas Gerais, Brazil.</p>
-        <p>In the last year, i've been developing websites in some personal projects with the objetive being leaning and understanding all the processes that i can use to beat any problem i see in real projects.
+        <p>In the last year, i've been developing websites in some personal projects with the objetive being learning and understanding all the processes that i can use to beat any problem i see in real projects.
             By now, my main project is this portfolio that i've developed using web technologies like: VueJS, Node, MySql and more.
         </p>
       </div>

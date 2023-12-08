@@ -16,7 +16,7 @@
 <style scoped   >
       .project-card{
         width: 300px;
-        height: 405px;
+        height: 415px;
         display: flex;
         flex-direction: column;
         align-items: center;

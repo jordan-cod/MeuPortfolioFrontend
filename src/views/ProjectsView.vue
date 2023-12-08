@@ -86,6 +86,15 @@
         width: 350px;
         max-width: 100%;
     }
+    @media screen and (max-width: 1800px){
+        .projects-box-grid{
+        grid-template-columns: repeat(4, 1fr);
+        }
+        .projects-box-grid h2{
+        grid-column: 1/5;
+        margin-bottom: 50px;
+        }
+    }
     @media screen and (max-width: 1400px){
         .projects-box-grid{
         grid-template-columns: repeat(3, 1fr);

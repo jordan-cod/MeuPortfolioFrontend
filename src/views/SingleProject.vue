@@ -67,9 +67,10 @@
   .display{
     width: 100%;
     height: 400px;
-    background: rgb(59, 59, 59);
+    background: rgb(136, 136, 136);
     margin-bottom: 5px;
     display: flex;
+    border:solid 1px var(--orange);
   }
   .display-back, .display-next{
     width: 50px;
@@ -95,7 +96,7 @@
   .circle{
     width: 10px;
     height: 10px;
-    background: blue;
+    background: var(--blue);
     display: block;
     border-radius: 50%;
   }
@@ -121,7 +122,7 @@
     row-gap: 10px;
   }
   .btn{
-    background-color: blue;
+    background-color: var(--blue);
     color: white;
     font-weight: 700;
     border-radius: 10px;
@@ -132,7 +133,7 @@
     justify-content: center;
   }
   .btn:hover{
-    background-color: rgb(1, 1, 133);
+    background-color: var(--blue);
   }
   .live{
     font-size: 14px;

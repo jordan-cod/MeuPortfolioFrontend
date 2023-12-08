@@ -6,7 +6,7 @@
           <h1>Hello, my name is Gabriel Jordan.</h1>
           <h2>A fullStack developer.</h2>
         </div>
-        <div>
+        <div class="links">
           <a href="https://github.com/jordan-cod" target="_blank">
             <i class="fa-brands fa-github fa-2xl" style="color: #000000;"></i>
           </a>
@@ -100,9 +100,13 @@
             <RouterLink :to="{path: `/project/${project.id}`}" class="view" v-for="project in projects.slice(0,4)" :key="project.id">
               
           <article  class="project-card">
-            <img :src="project.img"> 
-            <h3>{{ project.title }}</h3>
-            <p>{{project.descript}}</p>
+            <div class="project-img">
+              <img :src="project.img">
+            </div>
+            <div class="project-text">
+              <h3>{{ project.title }}</h3>
+              <p>{{project.descript}}</p>
+            </div> 
           </article>
             </RouterLink>
 
@@ -182,7 +186,7 @@
   .CVDownload{
     width: 143px;
     height: 43px;
-    background-color: #0015FF;
+    background-color: var(--blue);
     border-radius: 15px;
 
     color: white;
@@ -196,6 +200,14 @@
   }
   .CVDownload i{
     margin-right: 10px;
+  }
+  .fa-linkedin,.fa-github{
+    font-size: 43px;
+  }
+  .links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .skills{
     margin-top: 20px;
@@ -212,7 +224,7 @@
     column-gap: 10px;
   }
   .skill{
-    background: #003CD7;
+    background: var(--blue);
     width: 100px;
     height: 40px;
     border-radius: 15px;
@@ -235,9 +247,8 @@
     max-width: 500px;
   }
   .projects{
-    background: #DDDDDD;
+    background: #E5E5E5;
     width: 100%;
-    background-image: url(../assets/projectsBG.svg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: 0px 0px;
@@ -272,7 +283,7 @@
     border-radius: 15px;
     color: white;
     font-weight: 700;
-    background: #0015FF;
+    background: var(--blue);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -305,27 +316,32 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        background: rgb(131, 131, 131);
-        padding: 5px 15px;
+        background: var(--white);
         border-radius: 5px;
         margin-bottom: 20px;
         transition: transform 0.1s linear;
+        color: var(--font-black);
+
+        font-family: 'Public Sans';
     }
     .project-card img{
-        width: 290px;
+        width: 300px;
         height: 250px;
-        margin-bottom: 15px;
-        border-radius: 10px;
     }
     .project-card h3{
         margin-bottom: 15px;
+        font-weight: 500;
     }
     .project-card p{
         margin-bottom: 15px;
+        color: #494949;
+        font-weight: 500;
+    }
+    .project-text{
+      padding: 15px 20px;
     }
     .project-card .view{
-        background: #0015FF;
+        background: var(--blue);
         color: white;
         padding: 10px 30px;
         border-radius: 5px;
@@ -337,12 +353,12 @@
     .project-card:hover{
       transform: scale(1.1);
       box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
--webkit-box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
--moz-box-shadow: 1px 1px 28px -6px rgba(0,0,0,0.397);
+      -webkit-box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
+      -moz-box-shadow: 1px 1px 28px -6px rgba(0,0,0,0.397);
 
     }
     .project-card .view:hover{
-        background: #000b81;
+        background: var(--blue);
 
     }
   @media screen and (max-width: 1400px){

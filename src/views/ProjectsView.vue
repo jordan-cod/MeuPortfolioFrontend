@@ -74,7 +74,7 @@
         margin-bottom: 15px;
     }
     .project-card .view{
-        background: #0015FF;
+        background: var(--blue);
         color: white;
         padding: 10px 30px;
         border-radius: 5px;
@@ -84,7 +84,7 @@
         font-weight: 700;
     }
     .project-card .view:hover{
-        background: #000b81;
+        background: var(--blue);
     }
     .NotFound{
         width: 350px;

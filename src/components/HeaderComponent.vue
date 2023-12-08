@@ -20,11 +20,12 @@
     header{
         width: 100%;
         height: 60px;
-        background: #23272A;
-        color: white;
+        background: var(--blue);
+        color: rgb(0, 0, 0);
         display: flex;
         flex-direction: column;
         align-items: center;
+
     }
     header .headerSVG{
         position: absolute;
@@ -57,11 +58,11 @@
         padding: 16px 0px;
     }
     header nav a:hover{
-        color: #266afc;
+        color: var(--orange);
     }
     header nav a.router-link-exact-active {
-    color: #266afc;
-    border-bottom: 3px solid #266afc;
+    color: var(--orange);
+    border-bottom: 3px solid var(--orange);
     }
 
 </style>

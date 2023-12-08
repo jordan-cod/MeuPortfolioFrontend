@@ -97,12 +97,15 @@
       </div>
       <div class="projects-box" v-else>
         <h2>Projects</h2>
-          <article v-for="project in projects.slice(0,4)" :key="project.id" class="project-card">
+            <RouterLink :to="{path: `/project/${project.id}`}" class="view" v-for="project in projects.slice(0,4)" :key="project.id">
+              
+          <article  class="project-card">
             <img :src="project.img"> 
             <h3>{{ project.title }}</h3>
             <p>{{project.descript}}</p>
-            <RouterLink :to="{path: `/project/${project.id}`}" class="view">View</RouterLink>
           </article>
+            </RouterLink>
+
       </div>
       <RouterLink to="/projects" class="viewMore">View More</RouterLink>
     </section>
@@ -251,7 +254,7 @@
     max-width: 1200px;
     display: grid;
     justify-items: center;
-    column-gap: 10px;
+    column-gap: 20px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
   }
@@ -298,15 +301,16 @@
   }
   .project-card{
         width: 300px;
-        height: 450px;
+        height: 380px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        border: 1px solid rgb(156, 156, 156);
+        background: rgb(131, 131, 131);
         padding: 5px 15px;
         border-radius: 5px;
         margin-bottom: 20px;
+        transition: transform 0.1s linear;
     }
     .project-card img{
         width: 290px;
@@ -330,8 +334,16 @@
         text-align: center;
         font-weight: 700;
     }
+    .project-card:hover{
+      transform: scale(1.1);
+      box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
+-webkit-box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
+-moz-box-shadow: 1px 1px 28px -6px rgba(0,0,0,0.397);
+
+    }
     .project-card .view:hover{
         background: #000b81;
+
     }
   @media screen and (max-width: 1400px){
     .bg{

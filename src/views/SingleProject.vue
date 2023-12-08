@@ -124,11 +124,12 @@
     background-color: blue;
     color: white;
     font-weight: 700;
-    padding: 10px;
     border-radius: 10px;
-    width: 100px;
+    width: 120px;
     height: 35px;
-    text-align: center;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
   }
   .btn:hover{
     background-color: rgb(1, 1, 133);
@@ -175,6 +176,14 @@
         justify-content: center;
         flex-direction: row;
     }
+    @media screen and (max-width: 450px){
+      .project-box{
+        width: 90%;
+      }
+      .live{
+        font-size: 12px;
+      }
+    }
         
   }
 </style>
@@ -183,6 +192,9 @@
 import axios from 'axios';
 export default {
     name: 'singleProject',
+    props: {
+    projects: Array
+  },
     data() {
         return {
             project: [],

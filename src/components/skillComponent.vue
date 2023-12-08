@@ -26,10 +26,14 @@
 <script>
 export default{
     props: {
-        skill: Object
+        skill: {
+          name: String,
+          iClass: String,
+          class: String
+        }
     },
     data(){
-
+      return{}
     }
 }
 </script>

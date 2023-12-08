@@ -46,7 +46,7 @@
       <div class="skills">
         <h2>Skills</h2>
         <div class="skills-box">
-          <skillComponent :skill="skill" v-for="skill in skills" :key="skill.name"/>
+          <skillComponent :skill="skill" v-for="(skill, index) in skills" :key="index"/>
         </div>
       </div>
       <img src="../assets/bg.svg" class="bg">
@@ -344,7 +344,7 @@ import skillComponent from '@/components/skillComponent.vue';
 export default {
   name: 'HomeView',
   props: {
-    projects: Array
+    projects: Object
   },
   components: {ProjectCard, skillComponent},
   data () {

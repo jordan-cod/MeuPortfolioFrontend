@@ -12,7 +12,8 @@ export default {
   components: {HeaderComponent},
   data() {
     return {
-      projects: []
+      projects: [],
+      isActive: false
     }
   },
   methods: {
@@ -21,7 +22,7 @@ export default {
         .then(response =>{
           this.projects = response.data.result
         })
-    }    
+    }  
   },
   beforeMount() {
     this.searchAll()

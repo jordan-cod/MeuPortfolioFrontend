@@ -25,6 +25,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
+      -webkit-box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
+      -moz-box-shadow: 1px 1px 28px -6px rgba(0,0,0,0.397);
+    }
+    .HeaderScroll{
+        position: fixed;
+        top: 0;
     }
     header .headerSVG{
         position: absolute;
@@ -65,3 +72,11 @@
     }
 
 </style>
+
+<script>
+    export default {
+        data() {
+            return {}
+        }
+    }
+</script>

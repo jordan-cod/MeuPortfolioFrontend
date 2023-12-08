@@ -7,12 +7,7 @@
             </div>
             <div class="projects-box-grid" v-else>
                 <h2>Projects</h2>
-                <article v-for="project in projects" :key="project.id" class="project-card">
-                    <img :src="project.img" class="article-img"/>
-                    <h3>{{ project.title }}</h3>
-                    <p>{{project.descript}}</p>
-                    <RouterLink :to="{path: `/project/${project.id}`}" class="view">View</RouterLink>
-                </article>
+                <ProjectCard :project="project" v-for="project in projects.slice(0,4)" :key="project.id"></ProjectCard>
             </div>
         </div>
     </div>
@@ -20,12 +15,13 @@
 
 <style scoped>
     .projects-box{
-        margin-top: 140px;
+        padding-top: 140px;
         width: 100%;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        background: var(--gray);
     }
     .projects{
         width: 80%;
@@ -121,13 +117,13 @@
 </style>
 
 <script>
-
+import ProjectCard from '../components/ProjectCardComponent.vue'
 export default {
   name: 'ProjectsView',
   props: {
     projects: Array
   },
-  components: {},
+  components: {ProjectCard},
   data () {
     return {}
   }

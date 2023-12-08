@@ -97,19 +97,7 @@
       </div>
       <div class="projects-box" v-else>
         <h2>Projects</h2>
-            <RouterLink :to="{path: `/project/${project.id}`}" class="view" v-for="project in projects.slice(0,4)" :key="project.id">
-              
-          <article  class="project-card">
-            <div class="project-img">
-              <img :src="project.img">
-            </div>
-            <div class="project-text">
-              <h3>{{ project.title }}</h3>
-              <p>{{project.descript}}</p>
-            </div> 
-          </article>
-            </RouterLink>
-
+        <ProjectCard :project="project" v-for="project in projects.slice(0,4)" :key="project.id"></ProjectCard>
       </div>
       <RouterLink to="/projects" class="viewMore">View More</RouterLink>
     </section>
@@ -340,16 +328,6 @@
     .project-text{
       padding: 15px 20px;
     }
-    .project-card .view{
-        background: var(--blue);
-        color: white;
-        padding: 10px 30px;
-        border-radius: 5px;
-        margin-bottom: 5px;
-        width: 100%;
-        text-align: center;
-        font-weight: 700;
-    }
     .project-card:hover{
       transform: scale(1.1);
       box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
@@ -454,13 +432,13 @@
 </style>
 
 <script>
-
+import ProjectCard from '../components/ProjectCardComponent.vue'
 export default {
   name: 'HomeView',
   props: {
     projects: Array
   },
-  components: {},
+  components: {ProjectCard},
   data () {
     return {}
   }

@@ -4,18 +4,10 @@
             <h2>Projects</h2>
             <div class="search-box">
                 <div class="search-bar">
-                    <input type="text" v-model="search" class="search" @keyup="searchArray" placeholder="Search a project">
+                    <input type="text" v-model="search" class="search" placeholder="Search a project">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <select v-model="filter" class="selectBox">
-                    <option value = "" disabled selected>Filter</option>
-                    <option value="html">HTML</option>
-                    <option value="css">CSS</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="vuejs">VueJS</option>
-                    <option value="nodejs">NodeJs</option>
-                    <option value="mysql">MySql</option>
-                </select>
+                <button class="selectBox" @click="clearSearch">Clear</button>
             </div>
             <div class="projects-box-flex" v-if="projects.length === 0">
                 <img src="../assets/404.svg" class="NotFound">
@@ -82,8 +74,9 @@
         margin-left: 5px;
         padding: 0px 10px;
         color: var(--blue);
+        background: var(--white);
     }
-    .selectBox:focus{
+    .selectBox:hover{
         border: 2px solid var(--orange);
     }
     .projects-box-grid{
@@ -186,16 +179,18 @@ export default {
   data () {
     return {
         search: '',
-        filter: ''
+        filtered: ''
     }
   },
-  methods: {},
+  methods: {
+    clearSearch(){
+        this.search = ""
+    }
+  },
   computed: {
     filteredProjects: function(){
-        return this.projects.filter((project) =>{
-            return project.title.toLowerCase().match(this.search.toLocaleLowerCase())
-        })
-    }
+        return this.projects.filter((project) =>{return project.title.toLowerCase().match(this.search.toLowerCase())})
+}      
   }
 }
 </script>

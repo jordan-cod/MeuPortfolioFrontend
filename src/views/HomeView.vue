@@ -298,47 +298,6 @@
     width: 350px;
     max-width: 100%;
   }
-  .project-card{
-        width: 300px;
-        height: 380px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: var(--white);
-        border-radius: 5px;
-        margin-bottom: 20px;
-        transition: transform 0.1s linear;
-        color: var(--font-black);
-
-        font-family: 'Public Sans';
-    }
-    .project-card img{
-        width: 300px;
-        height: 250px;
-    }
-    .project-card h3{
-        margin-bottom: 15px;
-        font-weight: 500;
-    }
-    .project-card p{
-        margin-bottom: 15px;
-        color: #494949;
-        font-weight: 500;
-    }
-    .project-text{
-      padding: 15px 20px;
-    }
-    .project-card:hover{
-      transform: scale(1.1);
-      box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
-      -webkit-box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
-      -moz-box-shadow: 1px 1px 28px -6px rgba(0,0,0,0.397);
-
-    }
-    .project-card .view:hover{
-        background: var(--blue);
-
-    }
   @media screen and (max-width: 1400px){
     .bg{
       display: none;
@@ -348,13 +307,14 @@
     }
     .projects-box{
     margin-bottom: 80px;
-    width: 90%;
-    max-width: 1250px;
+    width: 100%;
+    max-width: 1280px;
   }
   }
   @media screen and (max-width: 1300px){
     .projects-box{
       grid-template-columns: repeat(3, 1fr);
+      width: 85%;
     }
     .projects-box h2{
     margin-bottom: 50px;
@@ -370,6 +330,7 @@
   }
   .projects-box{
       grid-template-columns: repeat(2, 1fr);
+      width: 80%;
     }
     .projects-box h2{
     margin-bottom: 50px;

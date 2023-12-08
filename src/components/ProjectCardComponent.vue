@@ -16,7 +16,7 @@
 <style scoped   >
       .project-card{
         width: 300px;
-        height: 380px;
+        height: 405px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -42,7 +42,7 @@
         font-weight: 500;
     }
     .project-text{
-      padding: 15px 20px;
+      padding: 20px 20px;
     }
     .project-card:hover{
       transform: scale(1.1);

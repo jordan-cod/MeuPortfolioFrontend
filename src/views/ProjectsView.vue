@@ -7,7 +7,7 @@
             </div>
             <div class="projects-box-grid" v-else>
                 <h2>Projects</h2>
-                <ProjectCard :project="project" v-for="project in projects.slice(0,4)" :key="project.id"></ProjectCard>
+                <ProjectCard :project="project" v-for="project in projects" :key="project.id"></ProjectCard>
             </div>
         </div>
     </div>
@@ -39,12 +39,12 @@
     .projects-box-grid{
         display: grid;
         justify-items: center;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         row-gap: 20px;
         column-gap: 20px;
     }
     .projects-box-grid h2{
-        grid-column: 1/5;
+        grid-column: 1/6;
         margin-bottom: 50px;
     }
     .project-card{

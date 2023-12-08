@@ -164,6 +164,12 @@
     .title-box{
       flex-direction: column;
     }
+    .project-title{
+    margin-bottom: 20px;
+  }
+  .project-about p{
+    margin-bottom: 50px;
+  }
   }
   @media screen and (max-width: 815px){
     .title-box{

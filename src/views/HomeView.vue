@@ -323,8 +323,8 @@
     .skills-box{
     grid-template-columns: repeat(3, 1fr);
     }
-    }
-    @media screen and (max-width: 330px){
+  }
+  @media screen and (max-width: 330px){
       .home .about{
         width: 90%;
       }
@@ -335,7 +335,7 @@
     .languages-box, .pt-br, .english{
       font-size: 14px;
     }
-    }
+  }
 </style>
 
 <script>

@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
 //import ProjectView from '../views/ProjectView.vue'
 import SingleProject from '@/views/SingleProject.vue'
+import adminView from '@/views/adminView.vue'
 
 const routes = [
   {
@@ -22,6 +23,12 @@ const routes = [
     name: 'project',
     meta: {title: ''},
     component: SingleProject
+  },
+  {
+    path: '/admin/',
+    name: 'admin',
+    meta: {title: 'Admin'},
+    component: adminView
   }
 ]
 

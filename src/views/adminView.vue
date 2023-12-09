@@ -1,13 +1,16 @@
 <template>
     <div class="admin">
         <form class="login" @click.prevent>
+            <RouterLink to="/" class="backHome">
+                <i class="fa-solid fa-left-long"></i>
+            </RouterLink>
             <div>
                 <h1>LOGIN</h1>
             </div>
             <div>
                 <div>
                     <input type="text" name="email" required>
-                    <span class="formLabel">Email</span>
+                    <span class="formLabel">User</span>
                 </div>
                 <div>
                     <input type="password" name="password" required>
@@ -29,7 +32,6 @@
         width: 100%;
         height: 100vh;
         display: flex;
-        flex-direction: column;
         flex-direction: row;
         align-items: center;
         justify-content: center;
@@ -38,8 +40,21 @@
         position: absolute;
         top: 0;
     }
+    a{
+        color: var(--blue);
+    }
     h1{
         margin-bottom: 30px;
+    }
+    .backHome{
+        font-size: 25px;
+        position: relative;
+        top: -120px;
+        left: -150px;
+        cursor: pointer;
+    }
+    .fa-left-long:hover{
+        transform: scale(1.2);
     }
     .img-locker{
         width: 250px;
@@ -115,6 +130,34 @@
         color: white;
         font-size: 17px;
         cursor: pointer;
+    }
+    @media screen and (max-width: 768px){
+        .admin{
+            flex-direction: column;
+        }
+        .login{
+            height: 270px;
+        }
+        .login:last-child{
+        border-left: 0px;
+        border-radius: 0px 0px 5px 5px;
+        background-color: var(--orange);
+        }
+        .login:first-child{
+        border-radius: 5px 5px 0px 0px;
+        }
+        .backHome{
+        top: -5px;
+        left: -150px;
+        }
+    }
+    @media screen and (max-width: 375px){
+        .login{
+            width: 300px;
+        }
+        .backHome{
+        left: -130px;
+        }
     }
 </style>
 

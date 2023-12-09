@@ -7,7 +7,7 @@
             </div>
             <div>
               <ul class="tecnologies">
-                <li v-for="(tecnologie, index) in tecnologies" :key="index">{{ tecnologie }}</li>
+                <li class="tecnologie" v-for="(tecnologie, index) in tecnologies" :key="index">{{ tecnologie }}</li>
               </ul>
             </div>
           </div>
@@ -75,7 +75,7 @@
     flex-wrap: wrap;
   }
   .tecnologies li{
-    background: var(--orange);
+    background: var(--blue);
     width: 100px;
     height: 40px;
     border-radius: 15px;

@@ -5,7 +5,7 @@
                 <i class="fa-solid fa-left-long"></i>
             </RouterLink>
             <div>
-                <h1>LOGIN</h1>
+                <h1>New project</h1>
             </div>
             <div>
                 <div>
@@ -163,13 +163,9 @@
 
 <script>
     export default{
-        props: {
-            projects: Array
-        },
         data() {
             return {}
         },
-        methods: {},
-        beforeMount(){}
+        methods: {}
     }
 </script>

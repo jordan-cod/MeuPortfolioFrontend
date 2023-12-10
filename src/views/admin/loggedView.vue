@@ -9,34 +9,81 @@
         <main class="content">
             <div class="content-title">
                 <h1>Projects</h1>
-                <button class="btnAdd">New</button>
+                <button class="btnAdd" @click="InsertProject()">New</button>
             </div>
             <ul class="projects-list">
-                <li v-for="project in projects" :key="project.id" class="project-grid">
+                <li v-for="(project, index) in projects" :key="index" class="project-grid">
                         <img :src="project.img">
-                        <p>{{ project.id }}</p>
                         <p>{{ project.title }}</p>
                         <p>{{ project.descript }}</p>
                         <div class="btns">
                             <i class="fa-solid fa-pencil btn"></i>
-                            <i class="fa-solid fa-trash btn"></i>
+                            <i class="fa-solid fa-trash btn" @click="DeleteProject(project.id, index)"></i>
                         </div>
                 </li>
             </ul>
+            <addProject/>
         </main>
     </div>
 </template>
 
 <script>
+import addProject from '@/components/admin/NewProject.vue'
+import axios from 'axios'
 export default {
   name: 'dashBoard',
+  components: [addProject],
   props: {
     projects: Object
   },
   data () {
     return {
-    
+        newProjects: [],
+        newProject: {
+            img: 'teste',
+            title: 'teste',
+            descript: 'teste',
+            url: 'teste',
+            download: 'teste'
+        }
     }
+  },
+  methods: {
+    DeleteProject(id, index) {
+        if(confirm("Do you really want to delete?")){
+                    axios.delete(`https://apigabrieljordan.onrender.com/api/project/${id}`)
+                    .then(() => {
+                        this.newProjects.splice(index, 1)
+                        this.$emit('arrayUpdate', this.newProjects)
+                        this.$toast.success(`Project deleted!`);
+                    })
+                    .catch(error => {
+                        this.$toast.error(error);
+
+                    })
+        }
+    },
+    InsertProject(){
+        const qs = require('qs')
+        const body = {img: this.newProject.img, title: this.newProject.title, descript: this.newProject.descript, url: this.newProject.url, download: this.newProject.download}
+        axios.post(`https://apigabrieljordan.onrender.com/api/project`, qs.stringify(body))
+        .then(() => {
+            this.newProjects.push(body)
+            this.updateArray()
+            this.$emit('arrayUpdate', this.newProjects)
+
+            this.$toast.success('Project added!')
+        })
+        .catch(error => {
+            this.$toast.error(error);
+        })
+    },
+    updateArray(){
+        this.newProjects = this.projects
+    }
+  },
+  updated(){
+    this.updateArray()
   }
 }
 </script>
@@ -122,7 +169,7 @@ export default {
     .projects-list li{
         background: var(--white);
         display: grid;
-        grid-template-columns: 72px 20px 100px 1fr 30px 30px;
+        grid-template-columns: 72px 100px 1fr 30px 30px;
         column-gap: 20px;
         height: 60px;
         border-radius: 5px;
@@ -192,18 +239,15 @@ export default {
             max-width: 500px;   
         }
         .projects-list li p:nth-child(2){
-            margin: 10px 0px;
-            display: none;
-        }
-        .projects-list li p:nth-child(3){
             font-weight: 700;
             font-size: 24px;
+            margin-top: 30px;
         }
-        .projects-list li p:nth-child(4){
+        .projects-list li p:nth-child(3){
             height: 150px;
             margin-bottom: 20px;
         }
-        .projects-list li p:nth-child(3), .projects-list li p:nth-child(4){
+        .projects-list li p:nth-child(3){
             padding: 15px;
         }
         .btns{

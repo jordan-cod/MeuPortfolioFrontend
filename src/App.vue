@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent/>
-    <router-view :projects="projects" v-slot="{ Component }">
+    <router-view :projects="projects" v-slot="{ Component }" :arrayUpdate="arrayUpdate">
       <Transition name="page-slide" mode="out-in">
         <component :is="Component"/>
       </Transition>
@@ -21,6 +21,9 @@ export default {
     }
   },
   methods: {
+    arrayUpdate(Newarray) {
+      this.projects = Newarray
+    },
     searchAll(){
       axios.get('https://apigabrieljordan.onrender.com/api/projects')
         .then(response =>{

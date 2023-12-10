@@ -26,4 +26,5 @@ body{
     width: 100%;
     background-repeat: no-repeat;
     background-position: 0px 60px;
+    background: var(--gray);
 }

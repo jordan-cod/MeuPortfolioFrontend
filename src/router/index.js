@@ -4,6 +4,7 @@ import ProjectsView from '../views/ProjectsView.vue'
 //import ProjectView from '../views/ProjectView.vue'
 import SingleProject from '@/views/SingleProject.vue'
 import adminView from '@/views/adminView.vue'
+import dashBoard from '@/views/admin/loggedView.vue'
 
 const routes = [
   {
@@ -27,8 +28,14 @@ const routes = [
   {
     path: '/admin/',
     name: 'admin',
-    meta: {title: 'Admin'},
+    meta: {title: '- Admin'},
     component: adminView
+  },
+  {
+    path: '/admin/dashboard',
+    name: 'dashBoard',
+    meta: {title: '- DashBoard'},
+    component: dashBoard
   }
 ]
 
@@ -38,7 +45,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = `Gabriel Jordan  ${to.meta.title}`
+  document.title = `Gabriel Jordan ${to.meta.title}`
   next()
 })
 

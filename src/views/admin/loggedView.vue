@@ -23,16 +23,14 @@
                         </div>
                 </li>
             </ul>
-            <addProject/>
         </main>
     </div>
 </template>
 
 <script>
-import addProject from '@/components/admin/NewProject.vue'
 export default {
   name: 'dashBoard',
-  components: [addProject],
+  components: [],
   data () {
     return {
         newProjects: [],

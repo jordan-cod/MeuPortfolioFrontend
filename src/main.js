@@ -33,6 +33,8 @@ const store = createStore({
       axios.post(`https://apigabrieljordan.onrender.com/api/project`, qs.stringify(body))
       .then(() => {
          state.projects.push(body)
+      }).catch((error)=>{
+        return error
       })
   }
   },

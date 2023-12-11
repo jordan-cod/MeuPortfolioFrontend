@@ -245,9 +245,6 @@
 import axios from 'axios';
 export default {
     name: 'singleProject',
-    props: {
-    projects: Array
-  },
     data() {
         return {
             project: [],

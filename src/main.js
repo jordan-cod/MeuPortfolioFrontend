@@ -9,7 +9,59 @@ import axios from 'axios'
 const store = createStore({
   state () {
     return {
-      projects: []
+      projects: [],
+      skills: [
+        {
+          name: 'Html',
+          class:'html skill',
+          iClass: 'fa-brands fa-html5 fa-2xl'
+        },
+        {
+          name: 'CSS',
+          class: 'css skill',
+          iClass:'fa-brands fa-css3-alt fa-2xl'
+        },
+        {
+          name: 'JavaScipt',
+          class:'vuejs skill',
+          iClass:'fa-brands fa-js fa-xl'
+        },
+        {
+          name: 'VueJS',
+          class:'vuejs skill',
+          iClass:'fa-brands fa-vuejs fa-2xl'
+        },
+        {
+          name: 'NodeJS',
+          class:'nodejs skill',
+          iClass: 'fa-brands fa-node-js fa-2xl'
+        },
+        {
+          name: 'MySQL',
+          class:'mysql skill',
+          iClass: 'fa-solid fa-database fa-2xl'
+        },
+        {
+          name: 'Git/GitHub',
+          class:'git skill',
+          iClass: 'fa-brands fa-git-alt fa-xl'
+        },
+        {
+          name: 'VBA',
+          class:'vba skill',
+          iClass: 'fa-solid fa-laptop-code fa-2xl'
+        },
+        {
+          name: 'PowerBI',
+          class:'powerbi skill',
+          iClass: 'fa-solid fa-chart-simple fa-2xl'
+        },
+        {
+          name: 'Figma',
+          class:'figma skill',
+          iClass: 'fa-brands fa-figma fa-2xl'
+        }
+      ]
     }
   },
   mutations: {

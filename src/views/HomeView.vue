@@ -46,19 +46,19 @@
       <div class="skills">
         <h2>Skills</h2>
         <div class="skills-box">
-          <skillComponent :skill="skill" v-for="(skill, index) in skills" :key="index"/>
+          <skillComponent :skill="skill" v-for="(skill, index) in GetterSkills" :key="index"/>
         </div>
       </div>
       <img src="../assets/bg.svg" class="bg">
     </section>
     <section class="projects">
-      <div class="projects-box-flex" v-if="projects.length == 0">
+      <div class="projects-box-flex" v-if="GetterProject.length == 0">
         <h2>Projects</h2>
         <img src="../assets/404.svg" class="NotFound">
       </div>
       <div class="projects-box" v-else>
         <h2>Projects</h2>
-        <ProjectCard :project="project" v-for="project in projects.slice(0,4)" :key="project.id"></ProjectCard>
+        <ProjectCard :project="project" v-for="project in GetterProject.slice(0,4)" :key="project.id"></ProjectCard>
       </div>
       <RouterLink to="/projects" class="viewMore">View More</RouterLink>
     </section>
@@ -343,64 +343,18 @@ import ProjectCard from '../components/ProjectCardComponent.vue'
 import skillComponent from '@/components/skillComponent.vue';
 export default {
   name: 'HomeView',
-  props: {
-    projects: Object
-  },
   components: {ProjectCard, skillComponent},
   data () {
     return {
-    skills: [
-      {
-        name: 'Html',
-        class:'html skill',
-        iClass: 'fa-brands fa-html5 fa-2xl'
-      },
-      {
-        name: 'CSS',
-        class: 'css skill',
-        iClass:'fa-brands fa-css3-alt fa-2xl'
-      },
-      {
-        name: 'JavaScipt',
-        class:'vuejs skill',
-        iClass:'fa-brands fa-js fa-xl'
-      },
-      {
-        name: 'VueJS',
-        class:'vuejs skill',
-        iClass:'fa-brands fa-vuejs fa-2xl'
-      },
-      {
-        name: 'NodeJS',
-        class:'nodejs skill',
-        iClass: 'fa-brands fa-node-js fa-2xl'
-      },
-      {
-        name: 'MySQL',
-        class:'mysql skill',
-        iClass: 'fa-solid fa-database fa-2xl'
-      },
-      {
-        name: 'Git/GitHub',
-        class:'git skill',
-        iClass: 'fa-brands fa-git-alt fa-xl'
-      },
-      {
-        name: 'VBA',
-        class:'vba skill',
-        iClass: 'fa-solid fa-laptop-code fa-2xl'
-      },
-      {
-        name: 'PowerBI',
-        class:'powerbi skill',
-        iClass: 'fa-solid fa-chart-simple fa-2xl'
-      },
-      {
-        name: 'Figma',
-        class:'figma skill',
-        iClass: 'fa-brands fa-figma fa-2xl'
-      }
-    ]
+  
+    }
+  },
+  computed: {
+    GetterProject () {
+    return this.$store.state.projects
+  },
+    GetterSkills(){
+      return this.$store.state.skills
     }
   }
 }

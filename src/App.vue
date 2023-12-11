@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent/>
-    <router-view :projects="GetterProject" v-slot="{ Component }">
+    <router-view v-slot="{ Component }">
       <Transition name="page-slide" mode="out-in">
         <component :is="Component"/>
       </Transition>
@@ -22,11 +22,6 @@ export default {
     searchAll(){
       this.$store.commit('GetProjects')
     }  
-  },
-  computed: {
-    GetterProject () {
-    return this.$store.state.projects
-  }
   },
   beforeMount() {
     this.searchAll()

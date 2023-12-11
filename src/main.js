@@ -19,7 +19,23 @@ const store = createStore({
           state.projects = response.data.result
           console.log(state.projects)
         })
-    }
+    },
+    DeleteProject(state, payload) {
+      if(confirm("Do you really want to delete?")){
+                  axios.delete(`https://apigabrieljordan.onrender.com/api/project/${payload.project_id}`)
+                  .then(() => {
+                      state.projects.splice(payload.project_index, 1)
+                  })
+      }
+    },
+    InsertProject(state, payload){
+      const qs = require('qs')
+      const body = payload
+      axios.post(`https://apigabrieljordan.onrender.com/api/project`, qs.stringify(body))
+      .then(() => {
+          state.projects.push(body)
+      })
+  }
   },
   getters: {
     AllProjects(state) {

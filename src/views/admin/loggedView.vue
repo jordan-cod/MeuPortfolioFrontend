@@ -12,7 +12,7 @@
                 <button class="btnAdd" @click="InsertProject()">New</button>
             </div>
             <ul class="projects-list">
-                <li v-for="(project, index) in projects" :key="index" class="project-grid">
+                <li v-for="(project, index) in GetterProject" :key="index" class="project-grid">
                         <img :src="project.img">
                         <p>{{ project.title }}</p>
                         <p>{{ project.descript }}</p>
@@ -29,13 +29,9 @@
 
 <script>
 import addProject from '@/components/admin/NewProject.vue'
-import axios from 'axios'
 export default {
   name: 'dashBoard',
   components: [addProject],
-  props: {
-    projects: Object
-  },
   data () {
     return {
         newProjects: [],
@@ -50,40 +46,20 @@ export default {
   },
   methods: {
     DeleteProject(id, index) {
-        if(confirm("Do you really want to delete?")){
-                    axios.delete(`https://apigabrieljordan.onrender.com/api/project/${id}`)
-                    .then(() => {
-                        this.newProjects.splice(index, 1)
-                        this.$emit('arrayUpdate', this.newProjects)
-                        this.$toast.success(`Project deleted!`);
-                    })
-                    .catch(error => {
-                        this.$toast.error(error);
-
-                    })
-        }
+        this.$store.commit('DeleteProject', {
+            project_id : id,
+            project_index : index
+        })
     },
     InsertProject(){
-        const qs = require('qs')
         const body = {img: this.newProject.img, title: this.newProject.title, descript: this.newProject.descript, url: this.newProject.url, download: this.newProject.download}
-        axios.post(`https://apigabrieljordan.onrender.com/api/project`, qs.stringify(body))
-        .then(() => {
-            this.newProjects.push(body)
-            this.updateArray()
-            this.$emit('arrayUpdate', this.newProjects)
-
-            this.$toast.success('Project added!')
-        })
-        .catch(error => {
-            this.$toast.error(error);
-        })
-    },
-    updateArray(){
-        this.newProjects = this.projects
+        this.$store.commit('InsertProject', body)
     }
   },
-  updated(){
-    this.updateArray()
+  computed: {
+    GetterProject () {
+    return this.$store.state.projects
+  }
   }
 }
 </script>

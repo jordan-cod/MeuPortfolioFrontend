@@ -263,6 +263,14 @@ export default {
     },
     beforeMount () {
         this.fetchProject();
+    },
+    computed: {
+      GetterSkills() {
+        return this.$store.state.skills
+    },
+      GetterSkillsFiltered(){
+        return this.$store.state.skills.filter((skill)=>{return skill.name.toLowerCase().match(this.skill.name.toLowerCase())})
+      }
     }
 }
 </script>

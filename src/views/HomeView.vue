@@ -345,9 +345,7 @@ export default {
   name: 'HomeView',
   components: {ProjectCard, skillComponent},
   data () {
-    return {
-  
-    }
+    return {}
   },
   computed: {
     GetterProject () {

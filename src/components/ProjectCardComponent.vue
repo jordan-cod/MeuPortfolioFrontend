@@ -63,9 +63,7 @@ export default {
         project: Object
     },
     data() {
-        return {
-
-        }
+        return {}
     }
 }
 </script>

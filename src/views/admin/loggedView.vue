@@ -17,6 +17,7 @@
                         <p>{{ project.title }}</p>
                         <p>{{ project.descript }}</p>
                         <div class="btns">
+                            {{ project.id }}
                             <i class="fa-solid fa-pencil btn"></i>
                             <i class="fa-solid fa-trash btn" @click="DeleteProject(project.id, index)"></i>
                         </div>
@@ -54,6 +55,7 @@ export default {
     InsertProject(){
         const body = {img: this.newProject.img, title: this.newProject.title, descript: this.newProject.descript, url: this.newProject.url, download: this.newProject.download}
         this.$store.commit('InsertProject', body)
+
     }
   },
   computed: {

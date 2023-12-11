@@ -17,7 +17,6 @@ const store = createStore({
         axios.get('https://apigabrieljordan.onrender.com/api/projects')
         .then(response =>{
           state.projects = response.data.result
-          console.log(state.projects)
         })
     },
     DeleteProject(state, payload) {
@@ -33,7 +32,7 @@ const store = createStore({
       const body = payload
       axios.post(`https://apigabrieljordan.onrender.com/api/project`, qs.stringify(body))
       .then(() => {
-          state.projects.push(body)
+         state.projects.push(body)
       })
   }
   },

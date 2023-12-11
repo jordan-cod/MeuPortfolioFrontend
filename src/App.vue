@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent/>
-    <router-view :projects="GetterProject" v-slot="{ Component }" :arrayUpdate="arrayUpdate">
+    <router-view :projects="GetterProject" v-slot="{ Component }">
       <Transition name="page-slide" mode="out-in">
         <component :is="Component"/>
       </Transition>
@@ -19,9 +19,6 @@ export default {
     }
   },
   methods: {
-    arrayUpdate(Newarray) {
-      this.projects = Newarray
-    },
     searchAll(){
       this.$store.commit('GetProjects')
     }  

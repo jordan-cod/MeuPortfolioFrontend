@@ -9,7 +9,7 @@
                 </div>
                 <button class="selectBox" @click="clearSearch">Clear</button>
             </div>
-            <div class="projects-box-flex" v-if="projects.length === 0">
+            <div class="projects-box-flex" v-if="filteredProjects.length === 0">
                 <img src="../assets/404.svg" class="NotFound">
             </div>
             <div class="projects-box-grid" v-else>
@@ -172,14 +172,10 @@
 import ProjectCard from '../components/ProjectCardComponent.vue'
 export default {
   name: 'ProjectsView',
-  props: {
-    projects: Array
-  },
   components: {ProjectCard},
   data () {
     return {
         search: '',
-        filtered: ''
     }
   },
   methods: {
@@ -189,8 +185,11 @@ export default {
   },
   computed: {
     filteredProjects: function(){
-        return this.projects.filter((project) =>{return project.title.toLowerCase().match(this.search.toLowerCase())})
-}      
+        return this.GetterProject.filter((project) =>{return project.title.toLowerCase().match(this.search.toLowerCase())})
+    },
+    GetterProject () {
+        return this.$store.state.projects
+    }
   }
 }
 </script>

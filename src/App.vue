@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent/>
-    <router-view :projects="projects" v-slot="{ Component }" :arrayUpdate="arrayUpdate">
+    <router-view :projects="GetterProject" v-slot="{ Component }" :arrayUpdate="arrayUpdate">
       <Transition name="page-slide" mode="out-in">
         <component :is="Component"/>
       </Transition>
@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import './global.css'
 import HeaderComponent from './components/HeaderComponent.vue';
 export default {
@@ -16,7 +15,6 @@ export default {
   components: {HeaderComponent},
   data() {
     return {
-      projects: [],
       isActive: false
     }
   },
@@ -25,11 +23,13 @@ export default {
       this.projects = Newarray
     },
     searchAll(){
-      axios.get('https://apigabrieljordan.onrender.com/api/projects')
-        .then(response =>{
-          this.projects = response.data.result
-        })
+      this.$store.commit('GetProjects')
     }  
+  },
+  computed: {
+    GetterProject () {
+    return this.$store.state.projects
+  }
   },
   beforeMount() {
     this.searchAll()

@@ -12,14 +12,25 @@
             <div class="projects-box-flex" v-if="filteredProjects.length === 0">
                 <img src="../assets/404.svg" class="NotFound">
             </div>
-            <div class="projects-box-grid" v-else>
+            <TransitionGroup tag="div" name="list" class="projects-box-grid" v-else>
                 <ProjectCard :project="project" v-for="project in filteredProjects" :key="project.id"></ProjectCard>
-            </div>
+            </TransitionGroup>
         </div>
     </div>
 </template>
 
 <style scoped>
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
     .projects-box{
         width: 100%;
         min-height: 100vh;

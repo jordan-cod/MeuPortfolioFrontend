@@ -11,7 +11,7 @@
                 <h1>Projects</h1>
                 <button class="btnAdd" @click="InsertProject()">New</button>
             </div>
-            <ul class="projects-list">
+                <TransitionGroup name="list" tag="ul" class="projects-list">
                 <li v-for="(project, index) in GetterProject" :key="index" class="project-grid">
                         <img :src="project.img">
                         <p>{{ project.title }}</p>
@@ -22,7 +22,7 @@
                             <i class="fa-solid fa-trash btn" @click="DeleteProject(project.id, index)"></i>
                         </div>
                 </li>
-            </ul>
+                </TransitionGroup>
         </main>
     </div>
 </template>
@@ -65,6 +65,15 @@ export default {
 </script>
 
 <style scoped>
+    .list-enter-active,
+    .list-leave-active {
+    transition: all 0.5s ease;
+    }
+    .list-enter-from,
+    .list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+    }
     .logged{
         width: 100%;
         display: flex;

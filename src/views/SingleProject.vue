@@ -12,24 +12,8 @@
             </div>
           </div>
             <div class="carrousel">
-                <div class="display">
-                    <div class="display-back">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </div>
-                    <div class="display-next">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-                <div class="display-images-mobile">
-                    <div class="display-mobile"></div>
-                    <div class="display-mobile"></div>
-                    <div class="display-mobile"></div>
-                </div>
-                <div class="circles">
-                    <span class="circle"></span>
-                    <span class="circle circle-selected"></span>
-                    <span class="circle"></span>
-                </div>
+                  <img class='teste' :src="project.laptop_img">
+                  <img class='teste' :src="project.mobile_img">
             </div>
             <div class="project-about">
                 <p>{{ this.project.descript }}</p>
@@ -87,50 +71,20 @@
     align-items: center;
     justify-content: center;
   }
-  .display{
-    width: 100%;
-    height: 400px;
-    background: rgb(136, 136, 136);
-    margin-bottom: 5px;
-    display: flex;
-    border:solid 1px var(--orange);
-  }
-  .display-back, .display-next{
-    width: 50px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.247);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .display-back:hover, .display-next:hover{
-    background-color: rgba(0, 0, 0, 0.397);
-    cursor: pointer;
-  }
-  .fa-chevron-left, .fa-chevron-right{
-    font-size: 30px;
-  }
-  .circles{
-    display: flex;
-    column-gap: 5px;
-    cursor: pointer;
-    align-items: center;
-  }
-  .circle{
-    width: 10px;
-    height: 10px;
-    background: var(--blue);
-    display: block;
-    border-radius: 50%;
-  }
-  .circle-selected {
-    width: 15px;
-    height: 15px;
-  }
   .carrousel{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    border-bottom: 2px solid var(--orange);
+    margin-top: 20px;
+    column-gap: 50px;
+    width: 100%;
+  }
+  .carrousel img{
+    max-width: 80%;
+  }
+  .carrousel img:last-child{
+    height: 450px;
   }
   .project-about{
     margin-top: 30px;
@@ -173,6 +127,13 @@
   }
   }
   @media screen and (max-width: 815px){
+    .carrousel{
+      flex-direction: column;
+    }
+    .carrousel img:last-child{
+      height: 300px;
+      margin: 20px 0px;
+    }
     .title-box{
       width: 100%;
       justify-content: center;
@@ -185,6 +146,9 @@
     .tecnologies{
       width: 80%;
     }
+    .display{
+      max-width: 100%;
+    }
   }
   @media screen and (max-width: 768px){
     .project-about{
@@ -195,31 +159,12 @@
         column-gap: 20px;
         margin-bottom: 50px;
     }
-    .display{
-        display: none;
-    }
     .title-box{
       margin-bottom: 10px ;
     }
     .tecnologies{
       font-size: 13px;
       width: 100%;
-    }
-    .circles{
-        display: none;
-    }
-    .display-images-mobile{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: auto;
-        row-gap: 15px;
-    }
-    .display-mobile{
-        width: 300px;
-        height: 300px;
-        background: gray;
     }
     .btns{
         justify-content: center;

@@ -13,7 +13,7 @@
           </div>
             <div class="carrousel">
                   <img class='teste' :src="project.laptop_img">
-                  <img class='teste' :src="project.mobile_img">
+                  <img class='teste mobile' :src="project.mobile_img" v-if="project.mobile_img">
             </div>
             <div class="project-about">
                 <p>{{ this.project.descript }}</p>
@@ -83,7 +83,7 @@
   .carrousel img{
     max-width: 80%;
   }
-  .carrousel img:last-child{
+  .carrousel .mobile{
     height: 450px;
   }
   .project-about{
@@ -130,7 +130,7 @@
     .carrousel{
       flex-direction: column;
     }
-    .carrousel img:last-child{
+    .carrousel .mobile{
       height: 300px;
       margin: 20px 0px;
     }

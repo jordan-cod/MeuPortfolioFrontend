@@ -4,7 +4,7 @@
             <h2>Projects</h2>
             <div class="search-box">
                 <div class="search-bar">
-                    <input type="text" v-model="search" class="search" placeholder="Search a project">
+                    <input type="text" v-model="filter.search" class="search" placeholder="Search a project">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <button class="selectBox" @click="clearSearch">Clear</button>
@@ -72,7 +72,7 @@
         width: 100%;
         padding: 10px 15px 10px 45px;
         outline: none;
-        border: 2px solid var(--blue);
+        border: 2px solid var(--black);
         transition: border 0.2s linear;
     }
     .search:focus{
@@ -80,7 +80,7 @@
     }
     .selectBox{
         height: 39px;
-        border: 2px solid var(--blue);
+        border: 2px solid var(--black);
         margin-left: 5px;
         padding: 0px 10px;
         color: var(--blue);
@@ -185,17 +185,22 @@ export default {
   components: {ProjectCard},
   data () {
     return {
-        search: '',
+        filter: {
+            search: '',
+            selected: ''
+        }
     }
   },
   methods: {
     clearSearch(){
-        this.search = ""
+        this.filter.search = ""
     }
   },
   computed: {
     filteredProjects: function(){
-        return this.GetterProject.filter((project) =>{return project.title.toLowerCase().match(this.search.toLowerCase())})
+        return this.GetterProject.filter((project) => {
+            return project.title.toLowerCase().match(this.filter.search.toLowerCase())
+        })
     },
     GetterProject () {
         return this.$store.state.projects

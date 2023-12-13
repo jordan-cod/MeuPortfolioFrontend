@@ -49,7 +49,6 @@
           <skillComponent :skill="skill" v-for="(skill, index) in GetterSkills" :key="index"/>
         </div>
       </div>
-      <img src="../assets/bg.svg" class="bg">
     </section>
     <section class="projects">
       <div class="projects-box-flex" v-if="GetterProject.length == 0">
@@ -181,11 +180,8 @@
     max-width: 500px;
   }
   .projects{
-    background: #E5E5E5;
     width: 100%;
     background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: 0px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;

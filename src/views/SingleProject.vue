@@ -47,6 +47,7 @@
   .project{
     width: 100%;
     display: flex;
+    min-height: 94vh;
     flex-direction: column;
     align-items: center;
     padding-top: 80px;

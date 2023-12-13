@@ -1,10 +1,12 @@
 <template>
-  <HeaderComponent/>
+  <div :class="{ 'dark': this.$store.state.isDark}">
+    <HeaderComponent/>
     <router-view v-slot="{ Component }">
       <Transition name="page-slide" mode="out-in">
         <component :is="Component"/>
       </Transition>
     </router-view>
+  </div>
 </template>
 
 <script>
@@ -21,10 +23,14 @@ export default {
   methods: {
     searchAll(){
       this.$store.commit('GetProjects')
+    },
+    saveTheme(){
+      this.$store.commit('saveTheme')
     }  
   },
   beforeMount() {
     this.searchAll()
+    this.$store.commit('getTheme')
   }
 }
 </script>

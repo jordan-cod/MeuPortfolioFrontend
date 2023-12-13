@@ -61,7 +61,8 @@ const store = createStore({
           class:'figma skill',
           iClass: 'fa-brands fa-figma fa-2xl'
         }
-      ]
+      ],
+      isDark: false
     }
   },
   mutations: {
@@ -88,7 +89,15 @@ const store = createStore({
       }).catch((error)=>{
         return error
       })
-  }
+    },
+    ToggleTheme(){
+      store.state.isDark = !store.state.isDark
+      localStorage.setItem("isDark", JSON.stringify(store.state.isDark))
+    },
+    getTheme() {
+      store.state.isDark = JSON.parse(localStorage.getItem("isDark"))
+      console.log( store.state.isDark)
+    }
   },
   getters: {
     AllProjects(state) {

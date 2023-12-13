@@ -20,24 +20,23 @@
 </template>
 
 <style scoped>
-.list-move, /* apply transition to moving elements */
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.5s ease;
-}
+    .list-move, /* apply transition to moving elements */
+    .list-enter-active,
+    .list-leave-active {
+    transition: all 0.5s ease;
+    }
 
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
+    .list-enter-from,
+    .list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+    }
     .projects-box{
         width: 100%;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: var(--gray);
         padding-top: 80px;
     }
     .projects{

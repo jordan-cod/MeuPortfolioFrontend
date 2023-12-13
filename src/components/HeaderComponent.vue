@@ -9,6 +9,7 @@
                     <li>
                         <RouterLink to="/projects">Projects</RouterLink>
                     </li>
+                    <button @click="changeTheme" class="themeChanger"></button>
                 </ul>
             </nav>
         </div>
@@ -17,6 +18,10 @@
 </template>
 
 <style scoped>
+    .themeChanger{
+        width: 100px;
+        height: 30px;
+    }
     header{
         width: 100%;
         height: 60px;
@@ -77,6 +82,12 @@
     export default {
         data() {
             return {}
+        },
+        methods: {
+            changeTheme(){
+                this.$store.commit('ToggleTheme')
+                console.log(this.$store.state.isDark)
+            }
         }
     }
 </script>

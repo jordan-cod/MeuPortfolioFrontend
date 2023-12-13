@@ -30,12 +30,9 @@ body{
     background-repeat: no-repeat;
     background-position: 0px 60px;
     background: var(--gray);
+    transition: 0.3s linear;
 }
 
-#app{
-    color: var(--font-black);
-    background: var(--gray);
-}
 div.dark{
     color: var(--font-white);
     background: var(--blue);
@@ -44,7 +41,7 @@ div.dark header{
     background: var(--black);
 }
 div.dark h1{
-    color: var(--font-white) !important; 
+    color: var(--font-white) !important;
 }
 div.dark h2{
     color: var(--font-white) !important;

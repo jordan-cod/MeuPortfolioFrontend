@@ -9,7 +9,11 @@
                     <li>
                         <RouterLink to="/projects">Projects</RouterLink>
                     </li>
-                    <button @click="changeTheme" class="themeChanger"></button>
+                    <div @click="changeTheme" class="themeChanger">
+                        <i class="fa-solid fa-sun"></i>
+                        <i class="fa-solid fa-moon"></i>
+                        <div class="ball" :class="{ active: this.$store.state.isDark }"></div>
+                    </div>
                 </ul>
             </nav>
         </div>
@@ -18,10 +22,37 @@
 </template>
 
 <style scoped>
-    .themeChanger{
-        width: 100px;
-        height: 30px;
-    }
+.themeChanger {
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 50px;
+  height: 26px;
+  width: 50px;
+  position: relative;
+  cursor: pointer;
+}
+.fa-moon {
+  color: #2e2e2e;
+}
+.fa-sun {
+  color: #f39c12;
+}
+.ball {
+  width: 22px;
+  height: 22px;
+  background: rgb(31, 31, 31);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 22px;
+  transition: transform 0.2s linear;
+}
+.active {
+  transform: translateX(24px);
+}
     header{
         width: 100%;
         height: 60px;
@@ -33,14 +64,6 @@
         box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
       -webkit-box-shadow: 1px 1px 28px -6px rgba(0, 0, 0, 0.397);
       -moz-box-shadow: 1px 1px 28px -6px rgba(0,0,0,0.397);
-    }
-    .HeaderScroll{
-        position: fixed;
-        top: 0;
-    }
-    header .headerSVG{
-        position: absolute;
-        top: 60px;
     }
     header div{
         width: 80%;
@@ -60,12 +83,12 @@
         height: 100%;
         display: flex;
         align-items: center;
+        column-gap: 30px;
     }
     header nav a {
         color: white;
         text-transform: uppercase;
         font-weight: 500;
-        margin-left: 30px;
         padding: 16px 0px;
     }
     header nav a:hover{

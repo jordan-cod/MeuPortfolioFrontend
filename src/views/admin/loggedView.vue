@@ -65,15 +65,6 @@ export default {
 </script>
 
 <style scoped>
-    .list-enter-active,
-    .list-leave-active {
-    transition: all 0.5s ease;
-    }
-    .list-enter-from,
-    .list-leave-to {
-    opacity: 0;
-    transform: translateX(30px);
-    }
     .logged{
         width: 100%;
         display: flex;
@@ -150,6 +141,15 @@ export default {
         width: 100%;
         row-gap: 10px;
         border-radius: 5px;
+    }
+    .list-enter-active,
+    .list-leave-active {
+    transition: all 0.5s ease;
+    }
+    .list-enter-from,
+    .list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
     }
     .projects-list li{
         background: var(--white);

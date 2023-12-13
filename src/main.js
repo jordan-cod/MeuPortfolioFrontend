@@ -96,7 +96,6 @@ const store = createStore({
     },
     getTheme() {
       store.state.isDark = JSON.parse(localStorage.getItem("isDark"))
-      console.log( store.state.isDark)
     }
   },
   getters: {

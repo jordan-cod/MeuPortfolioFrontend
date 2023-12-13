@@ -30,12 +30,11 @@ body{
     background-repeat: no-repeat;
     background-position: 0px 60px;
     background: var(--gray);
-    transition: 0.3s linear;
 }
 
 div.dark{
     color: var(--font-white);
-    background: var(--blue);
+    background: radial-gradient(circle, rgba(20,33,61,1) 0%, rgba(15,25,47,1) 100%);
 }
 div.dark header{
     background: var(--black);

@@ -1,7 +1,7 @@
 <template>
     <header>
             <nav>
-                <p  v-if="this.$store.state.mobile_menu"><span>G</span>abriel Jordan</p>
+                <RouterLink to="/" v-if="this.$store.state.mobile_menu"><span>G</span>abriel Jordan</RouterLink>
                 <input class="checkbox" type="checkbox" name="" id="" />
                 <div class="hamburger-lines" @click="this.$store.commit('ToggleMenu')">
                     <span class="line line1" :class="{ open: !this.$store.state.mobile_menu}"></span>
@@ -11,10 +11,10 @@
                 <ul :class="{ open: !this.$store.state.mobile_menu }">
                     <div>
                         <li>
-                        <RouterLink to="/">Home</RouterLink>
+                        <RouterLink to="/" @click="this.$store.commit('DisableMenu')">Home</RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/projects">Projects</RouterLink>
+                        <RouterLink to="/projects" @click="this.$store.commit('DisableMenu')">Projects</RouterLink>
                     </li>
                     <li @click="changeTheme">
                         <i class="fa-solid fa-sun"></i>
@@ -102,11 +102,12 @@
         justify-content: space-between;
         color: white;
     }
-    header nav p{
+    header nav a{
         font-size: 20px;
         font-weight: 700;
+        color: var(--white);
     }
-    header nav p span{
+    header nav a span{
         color: vaR(--orange);
         font-size: 25px;
     }

@@ -104,6 +104,9 @@ const store = createStore({
     },
     ToggleMenu(){
       store.state.mobile_menu = !store.state.mobile_menu
+    },
+    DisableMenu(){
+      store.state.mobile_menu = true
     }
   },
   getters: {

@@ -18,6 +18,7 @@
 }
 ul{
     list-style: none;
+    -webkit-tap-highlight-color: transparent;
 }
 a{
     text-decoration: none;

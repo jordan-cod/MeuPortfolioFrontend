@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 :root{
     --black: black;
     --orange: #FCA311;
@@ -46,10 +46,11 @@ div.dark h2{
     color: var(--font-white) !important;
 }
 div.dark a.CVDownload{
-    background: var(--orange);
-}
-div.dark .CVDownload{
+    background: var(--white);
     color: var(--black);
+}
+div.dark .CVDownload:hover{
+    background: var(--orange);
 }
 div.dark .english p:last-child, div.dark .pt-br p:last-child{
     color: var(--gray) !important;
@@ -61,8 +62,14 @@ div.dark .skill{
     background: var(--orange);
     color: var(--black);
 }
-div.dark .links .fa-github, div.dark .links .fa-linkedin{
+div.dark .links .fa-github, div.dark .links .fa-linkedin-in{
     color: var(--gray) !important;
+}
+div.dark .links .fa-github:hover{
+    color: rgb(71, 71, 71) !important;
+}
+div.dark .links .fa-linkedin-in:hover{
+    color: rgb(37, 114, 255) !important;
 }
 div.dark li.tecnologie, div.dark .btn, div.dark .viewMore{
     background: var(--orange) !important;

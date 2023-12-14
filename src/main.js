@@ -62,7 +62,12 @@ const store = createStore({
           iClass: 'fa-brands fa-figma fa-2xl'
         }
       ],
-      isDark: false
+      isDark: false,
+      user: {
+        _username: '',
+        _token: ''
+      },
+      mobile_menu: true
     }
   },
   mutations: {
@@ -96,6 +101,9 @@ const store = createStore({
     },
     getTheme() {
       store.state.isDark = JSON.parse(localStorage.getItem("isDark"))
+    },
+    ToggleMenu(){
+      store.state.mobile_menu = !store.state.mobile_menu
     }
   },
   getters: {

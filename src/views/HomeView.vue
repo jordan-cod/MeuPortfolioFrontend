@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="container">
     <section class="about">
       <div class="ME">
         <div>
@@ -11,17 +11,17 @@
             <i class="fa-brands fa-github fa-2xl" style="color: #000000;"></i>
           </a>
           <a href="https://www.linkedin.com/in/gabrieljordandev/" target="_blank">
-            <i class="fa-brands fa-linkedin fa-2xl" style="color: #337eff;"></i>
+            <i class="fa-brands fa-linkedin-in fa-2xl" style="color: #337eff;"></i>
           </a>
           <a href="/files/cv.pdf" class="CVDownload" download="">
-            <i class="fa-solid fa-file-arrow-down fa-xl"></i>Curriculum
+            <i class="fa-solid fa-file-arrow-down fa-xl"></i>CV
           </a>
         </div>
       </div>
       <div class="ME-2">
         <p>I'm 20 years old and based in Minas Gerais, Brazil.</p>
         <p>In the last year, i've been developing websites in some personal projects with the objetive being learning and understanding all the processes that i can use to beat any problem i see in real projects.
-            By now, my main project is this portfolio that i've developed using web technologies like: VueJS, Node, MySql and more.
+            By now, my main project is this portfolio that i've developed using web technologies like: <b>VueJS, Node, MySql</b> and more.
         </p>
       </div>
       <div class="languages">
@@ -65,7 +65,7 @@
 </template>
 
 <style scoped>
-  .home{
+  .container{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -74,36 +74,36 @@
     padding-top: 80px;
 
   }
-  .home .about{
+  .container .about{
     width: 80%;
     max-width: 1180px;
     margin-bottom: 50px;
     height: 450px;
   }
-  .home .about .ME h1{
+  .container .about .ME h1{
     font-size: 24px;
     color: black;
   }
-  .home .about .ME h2{
+  .container .about .ME h2{
     font-size: 18px;
     font-weight: 700;
     color: #3A3A3A;
   }
-  .home .about .ME{
+  .container .about .ME{
     display: flex;
     justify-content: space-between;
   }
-  .home .about .ME div:last-child{
+  .container .about .ME div:last-child{
     display: flex;
     align-items: center;
   }
-  .home .about .ME div:last-child a{
+  .container .about .ME div:last-child a{
     margin-right: 10px;
   }
-  .home .about .ME-2{
+  .container .about .ME-2{
     max-width: 780px;
   }
-  .home .about .ME-2 p{
+  .container .about .ME-2 p{
     margin-top: 20px;
   }
   .languages{
@@ -132,8 +132,8 @@
     color: #4F4F4F;
   }
   .CVDownload{
-    width: 143px;
-    height: 43px;
+    width: 119px;
+    height: 39px;
     background-color: var(--blue);
     border-radius: 15px;
 
@@ -149,8 +149,8 @@
   .CVDownload i{
     margin-right: 10px;
   }
-  .fa-linkedin,.fa-github{
-    font-size: 43px;
+  .fa-linkedin-in,.fa-github{
+    font-size: 40px;
   }
   .links{
     display: flex;
@@ -244,7 +244,7 @@
     .bg{
       display: none;
     }
-    .home .about{
+    .container .about{
       height: auto;
     }
     .projects-box{
@@ -283,30 +283,34 @@
     .skills-box{
     grid-template-columns: repeat(6, 1fr);
   }
-    .home .about .ME{
+    .container .about .ME{
       flex-direction: column;
       row-gap: 20px;
     }
   }
   @media screen and (max-width: 750px){
+    .links{
+      width: 100%;
+      justify-content: space-evenly;
+    }
     .skills-box{
     grid-template-columns: repeat(5, 1fr);
   }
   }
   @media screen and (max-width: 675px){
-    .home .about, .projects-box{
+    .container .about, .projects-box{
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .home .about .ME, .home .about .skills{
+    .container .about .ME, .container .about .skills{
       width: 100%;
       align-items: center;
     }
-    .home .about .languages{
+    .container .about .languages{
       width: 100%;
     }
-    .home .about .skills .skills-box{
+    .container .about .skills .skills-box{
       justify-items: center;
     }
     .projects-box h2{
@@ -321,7 +325,7 @@
     }
   }
   @media screen and (max-width: 330px){
-      .home .about{
+      .container .about{
         width: 90%;
       }
       .skill img{
@@ -338,7 +342,7 @@
 import ProjectCard from '../components/ProjectCardComponent.vue'
 import skillComponent from '@/components/skillComponent.vue';
 export default {
-  name: 'HomeView',
+  name: 'containerView',
   components: {ProjectCard, skillComponent},
   data () {
     return {}

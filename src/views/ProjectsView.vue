@@ -1,5 +1,5 @@
 <template>
-    <div class="projects-box">
+    <div class="container">
         <div class="projects">
             <h2>Projects</h2>
             <div class="search-box">
@@ -7,7 +7,7 @@
                     <input type="text" v-model="filter.search" class="search" placeholder="Search a project">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <button class="selectBox" @click="clearSearch">Clear</button>
+                <button class="selectBox" @click="this.filter.search = '' ">Clear</button>
             </div>
             <div class="projects-box-flex" v-if="filteredProjects.length === 0">
                 <img src="../assets/404.svg" class="NotFound">
@@ -20,7 +20,8 @@
 </template>
 
 <style scoped>
-    .list-move, /* apply transition to moving elements */
+/* apply transition to moving elements */
+    .list-move, 
     .list-enter-active,
     .list-leave-active {
     transition: all 0.5s ease;
@@ -31,7 +32,8 @@
     opacity: 0;
     transform: translateX(30px);
     }
-    .projects-box{
+    /* ------------------------------- */
+    .container{
         width: 100%;
         min-height: 100vh;
         display: flex;
@@ -40,7 +42,7 @@
         padding-top: 80px;
     }
     .projects{
-        width: 80%;
+        width: 85%;
     }
     .projects-box-flex{
         display: flex;
@@ -189,11 +191,6 @@ export default {
             search: '',
             selected: ''
         }
-    }
-  },
-  methods: {
-    clearSearch(){
-        this.filter.search = ""
     }
   },
   computed: {

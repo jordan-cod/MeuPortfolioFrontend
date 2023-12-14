@@ -10,26 +10,13 @@
 </template>
 
 <script>
-import './global.css'
+import '@/css/global.css'
 import HeaderComponent from './components/HeaderComponent.vue';
 export default {
   name: 'App',
   components: {HeaderComponent},
-  data() {
-    return {
-      isActive: false
-    }
-  },
-  methods: {
-    searchAll(){
-      this.$store.commit('GetProjects')
-    },
-    saveTheme(){
-      this.$store.commit('saveTheme')
-    }  
-  },
   beforeMount() {
-    this.searchAll()
+    this.$store.commit('GetProjects')
     this.$store.commit('getTheme')
   }
 }

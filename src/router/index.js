@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
-//import ProjectView from '../views/ProjectView.vue'
-import SingleProject from '@/views/SingleProject.vue'
+import ProjectDetailsView from '@/views/ProjectDetailsView.vue'
 import adminView from '@/views/adminView.vue'
 import dashBoard from '@/views/admin/loggedView.vue'
 
@@ -23,12 +22,12 @@ const routes = [
     path: '/project/:id',
     name: 'project',
     meta: {title: ''},
-    component: SingleProject
+    component: ProjectDetailsView
   },
   {
     path: '/admin/',
     name: 'admin',
-    meta: {title: '- Admin'},
+    meta: {title: '- Admin login'},
     component: adminView
   },
   {

@@ -1,5 +1,5 @@
 <template>
-    <div class="admin">
+    <div class="container">
         <form class="login" @click.prevent>
             <RouterLink to="/" class="backHome">
                 <i class="fa-solid fa-left-long"></i>
@@ -28,7 +28,7 @@
 </template>
 
 <style scoped>
-    .admin{
+    .container{
         width: 100%;
         height: 100vh;
         display: flex;

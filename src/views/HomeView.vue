@@ -19,10 +19,8 @@
         </div>
       </div>
       <div class="ME-2">
-        <p>I'm 20 years old and based in Minas Gerais, Brazil.</p>
-        <p>In the last year, i've been developing websites in some personal projects with the objetive being learning and understanding all the processes that i can use to beat any problem i see in real projects.
-            By now, my main project is this portfolio that i've developed using web technologies like: <b>VueJS, Node, MySql</b> and more.
-        </p>
+        <p>I am a full stack developer with experience in developing web applications using <b>VueJS</b>, <b>Node</b> and <b>mySQL.</b></p>
+        <p>In the last year, i've been developing websites in some projects with the objetive of learning and understanding all the processes that i can use to solve any problem.</p>
       </div>
       <div class="languages">
         <h3>Languages</h3>
@@ -280,6 +278,9 @@
   }
   }
   @media screen and (max-width: 850px){
+    .skills{
+      margin-top: 50px;
+    }
     .skills-box{
     grid-template-columns: repeat(6, 1fr);
   }
@@ -315,6 +316,7 @@
     }
     .projects-box h2{
     margin-bottom: 50px;
+    width: 100%;
     }
     .skill{
       width: 85px;

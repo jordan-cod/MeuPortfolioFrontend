@@ -31,6 +31,7 @@
     .project-card img{
         width: 300px;
         height: 250px;
+        border-radius: 5px;
     }
     .project-card h3{
         margin-bottom: 15px;

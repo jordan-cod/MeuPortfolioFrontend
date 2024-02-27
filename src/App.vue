@@ -16,7 +16,7 @@ export default {
   name: 'App',
   components: {HeaderComponent},
   mounted: function () {
-  window.setInterval(() => {
+  setInterval(() => {
     this.$store.commit('GetProjects')
   }, 900000)
 },

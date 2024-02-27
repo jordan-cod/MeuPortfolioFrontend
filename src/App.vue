@@ -15,6 +15,11 @@ import HeaderComponent from './components/HeaderComponent.vue';
 export default {
   name: 'App',
   components: {HeaderComponent},
+  mounted: function () {
+  window.setInterval(() => {
+    this.$store.commit('GetProjects')
+  }, 900000)
+},
   beforeMount() {
     this.$store.commit('GetProjects')
     this.$store.commit('getTheme')

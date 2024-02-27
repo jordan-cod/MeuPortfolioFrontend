@@ -68,11 +68,10 @@ const store = createStore({
     },
     mutations: {
       GetProjects (state) {
-        setInterval(axios.get('https://apigabrieljordan.onrender.com/api/projects')
-        .then(response =>{
-          state.projects = response.data.result
-          console.log("Atualizando projetos...")
-        }), 900000)
+          axios.get('https://apigabrieljordan.onrender.com/api/projects')
+          .then(response =>{
+            state.projects = response.data.result
+          })
       },
       DeleteProject(state, payload) {
         if(confirm("Do you really want to delete?")){

@@ -217,9 +217,11 @@
     }
     .fa-moon {
     color: #2e2e2e;
+    font-size: 14px;
     }
     .fa-sun {
     color: #f39c12;
+    font-size: 14px;
     }
     .ball {
     width: 20px;
@@ -232,7 +234,7 @@
     transition: transform 0.2s linear;
     }
     .active {
-    transform: translatey(19px);
+    transform: translateY(19px);
     }
     @media screen and (max-width: 768px){
         .hamburger-lines{

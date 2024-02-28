@@ -81,7 +81,7 @@
       </div>
       <div class="ME-2">
         <p>Sou um desenvolvedor FullStack com expêriencia em desenvolvimento de aplicações web utilizando <b>VueJS</b>, <b>Node</b> e <b>mySQL.</b></p>
-        <p>No último ano estive desenvolvendo websites em alguns projetos com o objetivo de aprender e entender todos os processos que eu posso usar para resolver qualquer problema.</p>
+        <p>No último ano desenvolvi projetos com o objetivo de aprender e entender os processos que posso usar para resolver os possiveis imprevistos em produção.</p>
       </div>
       <div class="languages">
         <h3>Idiomas</h3>

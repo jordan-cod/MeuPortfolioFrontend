@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+    <div class="container" v-if="this.$store.state.language">
     <section class="about">
       <div class="ME">
         <div>
@@ -29,7 +29,7 @@
             <img src="../assets/ptbr.svg">
             <div>
               <p>Portuguese</p>
-              <p>Fluent</p>
+              <p>Native</p>
             </div>
           </div>
           <div class="english">
@@ -58,6 +58,67 @@
         <ProjectCard :project="project" v-for="project in GetterProject.slice(0,4)" :key="project.id"></ProjectCard>
       </div>
       <RouterLink to="/projects" class="viewMore">View More</RouterLink>
+    </section>
+  </div>
+  <div class="container" v-else>
+    <section class="about">
+      <div class="ME">
+        <div>
+          <h1>Olá, meu nome é Gabriel Jordan.</h1>
+          <h2>Um desenvolvedor FullStack.</h2>
+        </div>
+        <div class="links">
+          <a href="https://github.com/jordan-cod" target="_blank">
+            <i class="fa-brands fa-github fa-2xl" style="color: #000000;"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/gabrieljordandev/" target="_blank">
+            <i class="fa-brands fa-linkedin-in fa-2xl" style="color: #337eff;"></i>
+          </a>
+          <a href="/files/cv.pdf" class="CVDownload" download="">
+            <i class="fa-solid fa-file-arrow-down fa-xl"></i>CV
+          </a>
+        </div>
+      </div>
+      <div class="ME-2">
+        <p>Sou um desenvolvedor FullStack com expêriencia em desenvolvimento de aplicações web utilizando <b>VueJS</b>, <b>Node</b> e <b>mySQL.</b></p>
+        <p>No último ano estive desenvolvendo websites em alguns projetos com o objetivo de aprender e entender todos os processos que eu posso usar para resolver qualquer problema.</p>
+      </div>
+      <div class="languages">
+        <h3>Idiomas</h3>
+        <div class="languages-box">
+          <div class="pt-br">
+            <img src="../assets/ptbr.svg">
+            <div>
+              <p>Português</p>
+              <p>Nativo</p>
+            </div>
+          </div>
+          <div class="english">
+            <img src="../assets/english.svg">
+            <div>
+              <p>Inglês</p>
+              <p>Intermediário</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="skills">
+        <h2>Tecnologias</h2>
+        <div class="skills-box">
+          <skillComponent :skill="skill" v-for="(skill, index) in GetterSkills" :key="index"/>
+        </div>
+      </div>
+    </section>
+    <section class="projects">
+      <div class="projects-box-flex" v-if="GetterProject.length == 0">
+        <h2>Projetos</h2>
+        <img src="../assets/404.svg" class="NotFound">
+      </div>
+      <div class="projects-box" v-else>
+        <h2>Projetos</h2>
+        <ProjectCard :project="project" v-for="project in GetterProject.slice(0,4)" :key="project.id"></ProjectCard>
+      </div>
+      <RouterLink to="/projects" class="viewMore">Ver mais</RouterLink>
     </section>
   </div>
 </template>
@@ -356,6 +417,11 @@ export default {
     GetterSkills(){
       return this.$store.state.skills
     }
-  }
+  },
+  methods: {
+            getLanguage(){
+                this.$store.commit('getLanguage')
+            }
+        }
 }
 </script>

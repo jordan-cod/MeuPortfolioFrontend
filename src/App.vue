@@ -18,6 +18,7 @@ export default {
   beforeMount() {
     this.$store.commit('GetProjects')
     this.$store.commit('getTheme')
+    this.$store.commit('getLanguage')
   }
 }
 </script>

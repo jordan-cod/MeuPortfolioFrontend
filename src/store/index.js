@@ -58,6 +58,7 @@ const store = createStore({
             iClass: 'fa-brands fa-figma fa-2xl'
           }
         ],
+        language: false,
         isDark: false,
         user: {
           _username: '',
@@ -95,8 +96,15 @@ const store = createStore({
         store.state.isDark = !store.state.isDark
         localStorage.setItem("isDark", JSON.stringify(store.state.isDark))
       },
+      ToggleLanguage(){
+        store.state.language = !store.state.language
+        localStorage.setItem("language", JSON.stringify(store.state.language))
+      },
       getTheme() {
         store.state.isDark = JSON.parse(localStorage.getItem("isDark"))
+      },
+      getLanguage() {
+        store.state.language = JSON.parse(localStorage.getItem("language"))
       },
       ToggleMenu(){
         store.state.mobile_menu = !store.state.mobile_menu

@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header v-if="this.$store.state.language">
             <nav>
                 <RouterLink to="/" v-if="this.$store.state.mobile_menu"><span>G</span>abriel Jordan</RouterLink>
                 <input class="checkbox" type="checkbox" name="" id="" />
@@ -16,10 +16,46 @@
                     <li>
                         <RouterLink to="/projects" @click="this.$store.commit('DisableMenu')">Projects</RouterLink>
                     </li>
-                    <li @click="changeTheme">
+                    <li @click="changeTheme" class="toggle-darkmode">
                         <i class="fa-solid fa-sun"></i>
                         <i class="fa-solid fa-moon"></i>
                         <div class="ball" :class="{ active: this.$store.state.isDark }"></div>
+                    </li>
+                    <li @click="changeLanguage" class="toggle-language">
+                        <img src="../assets/br-flag-circle.svg" alt="" class="pt-br">
+                        <img src="../assets/usa-flag-circle.png" alt="" class="english">
+                        <div class="ball-language" :class="{ active: this.$store.state.language }"></div>
+                    </li>
+                    </div>
+                </ul>
+            </nav>
+    </header>
+    <header v-else>
+            <nav>
+                <RouterLink to="/" v-if="this.$store.state.mobile_menu"><span>G</span>abriel Jordan</RouterLink>
+                <input class="checkbox" type="checkbox" name="" id="" />
+                <div class="hamburger-lines" @click="this.$store.commit('ToggleMenu')">
+                    <span class="line line1" :class="{ open: !this.$store.state.mobile_menu}"></span>
+                    <span class="line line2" :class="{ open: !this.$store.state.mobile_menu}"></span>
+                    <span class="line line3" :class="{ open: !this.$store.state.mobile_menu }"></span>
+                    </div> 
+                <ul :class="{ open: !this.$store.state.mobile_menu }">
+                    <div>
+                        <li>
+                        <RouterLink to="/" @click="this.$store.commit('DisableMenu')">Inicio</RouterLink>
+                    </li>
+                    <li>
+                        <RouterLink to="/projects" @click="this.$store.commit('DisableMenu')">Projetos</RouterLink>
+                    </li>
+                    <li @click="changeTheme" class="toggle-darkmode">
+                        <i class="fa-solid fa-sun"></i>
+                        <i class="fa-solid fa-moon"></i>
+                        <div class="ball" :class="{ active: this.$store.state.isDark }"></div>
+                    </li>
+                    <li @click="changeLanguage" class="toggle-language">
+                        <img src="../assets/br-flag-circle.svg" alt="" class="pt-br">
+                        <img src="../assets/usa-flag-circle.png" alt="" class="english">
+                        <div class="ball-language" :class="{ active: this.$store.state.language }"></div>
                     </li>
                     </div>
                 </ul>
@@ -28,17 +64,6 @@
 </template>
 
 <style scoped>
-    .checkbox {
-    position: absolute;
-    display: none;
-    height: 32px;
-    width: 32px;
-    top: 20px;
-    left: 20px;
-    z-index: 5;
-    opacity: 0;
-    cursor: pointer;
-    }
     .hamburger-lines{
         height: 26px;
         width: 32px;
@@ -117,7 +142,7 @@
         align-items: center;
         column-gap: 30px;
     }
-    header nav ul li:last-child {
+    header nav ul .toggle-language{
     background-color: rgb(233, 233, 233);
     display: flex;
     align-items: center;
@@ -127,6 +152,44 @@
     height: 26px;
     width: 50px;
     position: relative;
+    cursor: pointer;
+    }
+    header nav ul .toggle-language .pt-br, header nav ul .toggle-language .english{
+        width: 15px;
+        height: 15px;
+        border-radius: 50px;
+    }
+    .ball-language {
+    width: 22px;
+    height: 22px;
+    background: rgb(31, 31, 31);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 22px;
+    transition: transform 0.2s linear;
+    }
+    header nav ul .toggle-darkmode{
+    background-color: rgb(233, 233, 233);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 50px;
+    height: 26px;
+    width: 50px;
+    position: relative;
+    cursor: pointer;
+    }
+    .checkbox {
+    position: absolute;
+    display: none;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
     cursor: pointer;
     }
     header nav ul li a {
@@ -189,7 +252,10 @@
         methods: {
             changeTheme(){
                 this.$store.commit('ToggleTheme')
-                console.log(this.$store.state.isDark)
+            },
+            changeLanguage(){
+                this.$store.commit('ToggleLanguage')
+                console.log(this.$store.state.language)
             }
         }
     }

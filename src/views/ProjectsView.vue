@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container"  v-if="this.$store.state.language">
         <div class="projects">
             <h2>Projects</h2>
             <div class="search-box">
@@ -8,6 +8,24 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <button class="selectBox" @click="this.filter.search = '' ">Clear</button>
+            </div>
+            <div class="projects-box-flex" v-if="filteredProjects.length === 0">
+                <img src="../assets/404.svg" class="NotFound">
+            </div>
+            <TransitionGroup tag="div" name="list" class="projects-box-grid" v-else>
+                <ProjectCard :project="project" v-for="project in filteredProjects" :key="project.id"></ProjectCard>
+            </TransitionGroup>
+        </div>
+    </div>
+    <div class="container" v-else>
+        <div class="projects">
+            <h2>Projetos</h2>
+            <div class="search-box">
+                <div class="search-bar">
+                    <input type="text" v-model="filter.search" class="search" placeholder="Pesquisar projeto">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <button class="selectBox" @click="this.filter.search = '' ">Limpar</button>
             </div>
             <div class="projects-box-flex" v-if="filteredProjects.length === 0">
                 <img src="../assets/404.svg" class="NotFound">

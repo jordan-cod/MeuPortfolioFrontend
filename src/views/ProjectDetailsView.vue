@@ -16,7 +16,8 @@
                   <img class='teste mobile' :src="project.mobile_img" v-if="project.mobile_img">
             </div>
             <div class="project-about">
-                <p>{{ this.project.descript }}</p>
+                <p v-if="this.$store.state.language">{{project.descript}}</p>
+                <p v-else>{{project.descript_ptbr}}</p>
                 <div class="btns">
                     <a :href="this.project.url" target="_blank" class="btn">GitHub</a>
                     <a :href="this.project.download" class="btn">Download</a>

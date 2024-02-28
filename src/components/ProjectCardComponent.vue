@@ -7,7 +7,8 @@
                 </div>
                 <div class="project-text">
                   <h3>{{ project.title }}</h3>
-                  <p>{{project.descript}}</p>
+                  <p v-if="this.$store.state.language">{{project.descript}}</p>
+                  <p v-else>{{project.descript_ptbr}}</p>
                 </div> 
               </article>
     </RouterLink>

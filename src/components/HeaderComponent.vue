@@ -16,7 +16,8 @@
                     <li>
                         <RouterLink to="/projects" @click="this.$store.commit('DisableMenu')">Projects</RouterLink>
                     </li>
-                    <li @click="changeTheme" class="toggle-darkmode">
+                    <span class="toggles">
+                        <li @click="changeTheme" class="toggle-darkmode">
                         <i class="fa-solid fa-sun"></i>
                         <i class="fa-solid fa-moon"></i>
                         <div class="ball" :class="{ active: this.$store.state.isDark }"></div>
@@ -26,6 +27,7 @@
                         <img src="../assets/usa-flag-circle.png" alt="" class="english">
                         <div class="ball-language" :class="{ active: this.$store.state.language }"></div>
                     </li>
+                </span>
                     </div>
                 </ul>
             </nav>
@@ -47,7 +49,8 @@
                     <li>
                         <RouterLink to="/projects" @click="this.$store.commit('DisableMenu')">Projetos</RouterLink>
                     </li>
-                    <li @click="changeTheme" class="toggle-darkmode">
+                    <span class="toggles">
+                        <li @click="changeTheme" class="toggle-darkmode">
                         <i class="fa-solid fa-sun"></i>
                         <i class="fa-solid fa-moon"></i>
                         <div class="ball" :class="{ active: this.$store.state.isDark }"></div>
@@ -57,6 +60,7 @@
                         <img src="../assets/usa-flag-circle.png" alt="" class="english">
                         <div class="ball-language" :class="{ active: this.$store.state.language }"></div>
                     </li>
+                </span>
                     </div>
                 </ul>
             </nav>
@@ -142,15 +146,20 @@
         align-items: center;
         column-gap: 30px;
     }
+    .toggles{
+        display: flex;
+        column-gap: 10px;
+    }
     header nav ul .toggle-language{
     background-color: rgb(233, 233, 233);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 5px;
     border-radius: 50px;
-    height: 26px;
-    width: 50px;
+    height: 45px;
+    width: 26px;
     position: relative;
     cursor: pointer;
     }
@@ -160,24 +169,25 @@
         border-radius: 50px;
     }
     .ball-language {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     background: rgb(31, 31, 31);
     position: absolute;
     top: 2px;
-    left: 2px;
+    left: 3px;
     border-radius: 22px;
     transition: transform 0.2s linear;
     }
     header nav ul .toggle-darkmode{
     background-color: rgb(233, 233, 233);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 5px;
     border-radius: 50px;
-    height: 26px;
-    width: 50px;
+    height: 45px;
+    width: 26px;
     position: relative;
     cursor: pointer;
     }
@@ -212,17 +222,17 @@
     color: #f39c12;
     }
     .ball {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     background: rgb(31, 31, 31);
     position: absolute;
     top: 2px;
-    left: 2px;
+    left: 3px;
     border-radius: 22px;
     transition: transform 0.2s linear;
     }
     .active {
-    transform: translateX(24px);
+    transform: translatey(19px);
     }
     @media screen and (max-width: 768px){
         .hamburger-lines{
@@ -238,6 +248,12 @@
         }
         header nav ul.open{
             display: flex;
+            
+        }
+    }
+    @media screen and (max-width: 350px){
+        .hamburger-lines{
+            right: 0px;
         }
     }
 </style>

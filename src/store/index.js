@@ -69,14 +69,14 @@ const store = createStore({
     },
     mutations: {
       GetProjects (state) {
-          axios.get('https://apigabrieljordan.onrender.com/api/projects')
+          axios.get('https://api.gabrieljordan.me/api/projects')
           .then(response =>{
             state.projects = response.data.result
           })
       },
       DeleteProject(state, payload) {
         if(confirm("Do you really want to delete?")){
-                    axios.delete(`https://apigabrieljordan.onrender.com/api/project/${payload.project_id}`)
+                    axios.delete(`https://api.gabrieljordan.me/api/project/${payload.project_id}`)
                     .then(() => {
                         state.projects.splice(payload.project_index, 1)
                     })
@@ -85,7 +85,7 @@ const store = createStore({
       InsertProject(state, payload){
         const qs = require('qs')
         const body = payload
-        axios.post(`https://apigabrieljordan.onrender.com/api/project`, qs.stringify(body))
+        axios.post(`https://api.gabrieljordan.me/api/project`, qs.stringify(body))
         .then(() => {
            state.projects.push(body)
         }).catch((error)=>{

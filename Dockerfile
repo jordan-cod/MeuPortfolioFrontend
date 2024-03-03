@@ -19,4 +19,8 @@ COPY . .
 RUN npm run build
 
 EXPOSE 8080
-CMD ["http-server", "-P", "http://localhost:8080?", "dist"]
+ENTRYPOINT [ "http-server" ]
+CMD [ "-P", "http://localhost:8080?", "dist" ]
+
+
+

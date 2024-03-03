@@ -18,9 +18,9 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-EXPOSE 8080
+EXPOSE 3000
 ENTRYPOINT [ "http-server" ]
-CMD [ "-P", "http://localhost:8080?", "dist" ]
+CMD [ "-P", "http://localhost:3000?", "dist" ]
 
 
 

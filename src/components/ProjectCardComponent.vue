@@ -7,8 +7,9 @@
                 </div>
                 <div class="project-text">
                   <h3>{{ project.title }}</h3>
-                  <p v-if="this.$store.state.language">{{project.descript}}</p>
-                  <p v-else>{{project.descript_ptbr}}</p>
+                  <p class="description" v-if="this.$store.state.language">{{project.descript}}</p>
+                  <p class="description" v-else>{{project.descript_ptbr}}</p>
+                  <p class="category">{{project.category}}</p>
                 </div> 
               </article>
     </RouterLink>
@@ -17,7 +18,7 @@
 <style scoped   >
       .project-card{
         width: 300px;
-        height: 415px;
+        height: 455px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -56,6 +57,9 @@
     .project-card .view:hover{
         background: var(--blue);
 
+    }
+    .description{
+      height: 100px;
     }
 </style>
 

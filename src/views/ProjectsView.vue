@@ -24,8 +24,16 @@
                 <div class="search-bar">
                     <input type="text" v-model="filter.search" class="search" placeholder="Pesquisar projeto">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                    <i v-show="filter.search !== ''" class="fa-solid fa-xmark" @click="filter.search = ''"></i>
                 </div>
-                <button class="selectBox" @click="this.filter.search = '' ">Limpar</button>
+                <div class="wrapper">
+                    <p class="select-box" @click="filter.active = !filter.active" v-if="filter.selected== ''" :class="{'borderSelected': filter.selected !== ''}">Filter</p>
+                    <p class="select-box"  @click="filter.active = !filter.active" v-else :class="{'borderSelected': filter.selected !== ''}">{{filter.selected}}</p>
+                    <i v-show="filter.selected !== ''" class="fa-solid fa-xmark" @click="filter.selected = ''"></i>
+                    <ul class="listbox" v-show="filter.active">
+                        <li v-for="category in this.categories" v-bind:key="category.name" @click="filter.selected = category.name; filter.active = false">{{ category.name }}</li>
+                    </ul>
+                </div>
             </div>
             <div class="projects-box-flex" v-if="filteredProjects.length === 0">
                 <img src="../assets/404.svg" class="NotFound">
@@ -79,6 +87,56 @@
     }
     .search-bar{
         width: 100%;
+        margin-right: 5px
+    }
+    .search-bar .fa-xmark{
+        position: relative;
+        right: -94%;
+        top: -34px;
+        z-index: 10;
+        color: grey;
+    }
+    .select-box{
+        height: 39px;
+        width: 150px;
+        min-width: 120px;
+        padding: 0px 5px;
+        border: 2px solid var(--black);
+        background: var(--white);
+        display: flex;
+        align-items: center;
+        cursor:default;
+    }
+    .select-box:hover{
+        border: 2px solid var(--orange);
+    }
+    .borderSelected{
+        border: 2px solid var(--orange);
+    }
+    .listbox{
+        background: var(--white);
+        position: absolute;
+        row-gap: 5px;
+        top:225px;
+        width: 150px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.459);
+        -moz-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.459);
+        box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.459);
+        z-index: 15;
+    }
+    .listbox li{
+        padding: 5px 5px;
+    }
+    .listbox li:first-child{
+        border-radius: 5px 5px 0px 0px;
+    }
+    .listbox li:last-child{
+        border-radius: 0px 0px 5px 5px
+    }
+    .listbox li:hover{
+        background-color: rgba(67, 67, 236, 0.452);
+        cursor: default;
     }
     .fa-magnifying-glass{
         font-size: 25px;
@@ -86,6 +144,13 @@
         top: -31px;
         left: 10px;
         color: gray;
+    }
+    .wrapper .fa-xmark{
+        position: relative;
+        right:-127px;
+        top: -28px;
+        z-index: 10;
+        color: grey;
     }
     .search{
         grid-column: 1/6;
@@ -203,19 +268,38 @@ import ProjectCard from '../components/ProjectCardComponent.vue'
 export default {
   name: 'ProjectsView',
   components: {ProjectCard},
+
   data () {
     return {
         filter: {
+            active: false,
             search: '',
             selected: ''
-        }
+        },
+        categories:[
+            {'name':'FrontEnd'}, {'name':'BackEnd'}, {'name': 'FrontEnd, BackEnd'}
+        ]
     }
+  },
+  methods: {
+    clear(){
+        this.filter.search = ''
+        this.filter.selected = ''
+    },
   },
   computed: {
     filteredProjects: function(){
-        return this.GetterProject.filter((project) => {
-            return project.title.toLowerCase().match(this.filter.search.toLowerCase())
-        })
+        let filtered = this.GetterProject
+
+        if(this.filter.search !== ''){
+            const searchRegex = new RegExp(this.filter.search, 'i')
+            filtered = filtered.filter(project => searchRegex.test(project.title))
+        }
+        if(this.filter.selected !== ''){
+            filtered = filtered.filter(project => project.category == this.filter.selected);
+        }
+        return filtered;
+
     },
     GetterProject () {
         return this.$store.state.projects

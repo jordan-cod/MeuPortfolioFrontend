@@ -1,13 +1,21 @@
 <template>
-    <div class="container"  v-if="this.$store.state.language">
+    <div class="container" v-if="this.$store.state.language">
         <div class="projects">
             <h2>Projects</h2>
             <div class="search-box">
                 <div class="search-bar">
                     <input type="text" v-model="filter.search" class="search" placeholder="Search a project">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                    <i v-show="filter.search !== ''" class="fa-solid fa-xmark" @click="filter.search = ''"></i>
                 </div>
-                <button class="selectBox" @click="this.filter.search = '' ">Clear</button>
+                <div class="wrapper">
+                    <p class="select-box" @click="filter.active = !filter.active" v-if="filter.selected== ''" :class="{'borderSelected': filter.selected !== ''}">Filter</p>
+                    <p class="select-box"  @click="filter.active = !filter.active" v-else :class="{'borderSelected': filter.selected !== ''}">{{filter.selected}}</p>
+                    <i v-show="filter.selected !== ''" class="fa-solid fa-xmark" @click="filter.selected = ''"></i>
+                    <ul class="listbox" v-show="filter.active">
+                        <li v-for="category in this.categories" v-bind:key="category.name" @click="filter.selected = category.name; filter.active = false">{{ category.name }}</li>
+                    </ul>
+                </div>
             </div>
             <div class="projects-box-flex" v-if="filteredProjects.length === 0">
                 <img src="../assets/404.svg" class="NotFound">
@@ -27,7 +35,7 @@
                     <i v-show="filter.search !== ''" class="fa-solid fa-xmark" @click="filter.search = ''"></i>
                 </div>
                 <div class="wrapper">
-                    <p class="select-box" @click="filter.active = !filter.active" v-if="filter.selected== ''" :class="{'borderSelected': filter.selected !== ''}">Filter</p>
+                    <p class="select-box" @click="filter.active = !filter.active" v-if="filter.selected== ''" :class="{'borderSelected': filter.selected !== ''}">Filtro</p>
                     <p class="select-box"  @click="filter.active = !filter.active" v-else :class="{'borderSelected': filter.selected !== ''}">{{filter.selected}}</p>
                     <i v-show="filter.selected !== ''" class="fa-solid fa-xmark" @click="filter.selected = ''"></i>
                     <ul class="listbox" v-show="filter.active">

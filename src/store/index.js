@@ -1,10 +1,11 @@
 import { createStore } from "vuex";
-import axios from 'axios'
+import axios from "axios";
 
 // Create a new store instance.
 const store = createStore({
     state () {
       return {
+        isProjectOpen: false,
         projects: [],
         skills: [
           {
@@ -61,36 +62,17 @@ const store = createStore({
         language: false,
         isDark: false,
         user: {
-          _username: '',
-          _token: ''
+          username: ''
         },
         mobile_menu: true
       }
     },
     mutations: {
       GetProjects (state) {
-          axios.get('https://api.gabrieljordan.me/api/projects')
+          axios.get('/projects')
           .then(response =>{
-            state.projects = response.data.result
+            state.projects = response.data
           })
-      },
-      DeleteProject(state, payload) {
-        if(confirm("Do you really want to delete?")){
-                    axios.delete(`https://api.gabrieljordan.me/api/project/${payload.project_id}`)
-                    .then(() => {
-                        state.projects.splice(payload.project_index, 1)
-                    })
-        }
-      },
-      InsertProject(state, payload){
-        const qs = require('qs')
-        const body = payload
-        axios.post(`https://api.gabrieljordan.me/api/project`, qs.stringify(body))
-        .then(() => {
-           state.projects.push(body)
-        }).catch((error)=>{
-          return error
-        })
       },
       ToggleTheme(){
         store.state.isDark = !store.state.isDark
@@ -114,6 +96,54 @@ const store = createStore({
       AllProjects(state) {
           return state.projects
       }
+    },
+    actions: {
+    isTokenValid(expiration) {
+      const expirationDate = new Date(expiration);
+      const currentDate = new Date();
+        if (!expiration) {
+            return false;
+        }
+        if (currentDate < expirationDate){
+          return false
+        }else{
+          return true
+        }
+    },
+    InsertProject: async function(state, payload) {
+      const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+      };
+
+      try {
+        await axios.post(`/projects`, payload, { headers: headers });
+        state.commit('GetProjects')
+
+        return { success: true, message: 'Projeto inserido com sucesso.'};
+      } catch (error) {
+        console.error('Erro ao inserir projeto:', error);
+        return { success: false, message: 'Erro ao inserir projeto.' };
+      }
+    },
+    DeleteProject: async function(state, payload) {
+      const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+      };
+    
+      if (confirm("Do you really want to delete?")) {
+        try {
+          await axios.delete(`/projects/${payload.project_id}`, { headers: headers });
+          state.commit('GetProjects')
+          return { success: true, message: 'Projeto deletado com sucesso.' };
+        } catch (error) {
+          console.error('Erro ao deletar projeto:', error);
+          return { success: false, message: 'Erro ao deletar projeto.' };
+        }
+      }
+    }
+
     }
   })
 

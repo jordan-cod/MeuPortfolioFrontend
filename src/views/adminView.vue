@@ -1,29 +1,27 @@
 <template>
     <div class="container">
         <form class="login" @click.prevent>
-            <RouterLink to="/" class="backHome">
-                <i class="fa-solid fa-left-long"></i>
-            </RouterLink>
             <div>
-                <h1>New project</h1>
+                <h1>Dashboard</h1>
             </div>
             <div>
                 <div>
-                    <input type="text" name="email" required>
-                    <span class="formLabel">User</span>
+                    <input type="text" name="email" v-model='data.email' required>
+                    <span class="formLabel">Email</span>
                 </div>
                 <div>
-                    <input type="password" name="password" required>
+                    <input type="text" name="username" v-model='data.username' required>
+                    <span class="formLabel">Username</span>
+                </div>
+                <div>
+                    <input type="password" name="password" v-model='data.password' required>
                     <span class="formLabel">Password</span>
                 </div>
                 <div>
-                    <button class="login-btn">Login</button>
+                    <button class="login-btn" @click="login">Login</button>
                 </div>
             </div>
         </form>
-        <div class="login">
-            <img src="@/assets/login.svg" class="img-locker">
-        </div>
     </div>
 </template>
 
@@ -39,6 +37,7 @@
         color: var(--blue);
         position: absolute;
         top: 0;
+        z-index: 10;
     }
     a{
         color: var(--blue);
@@ -53,18 +52,9 @@
         left: -150px;
         cursor: pointer;
     }
-    .fa-left-long:hover{
-        transform: scale(1.2);
-    }
-    .img-locker{
-        width: 250px;
-        position: relative;
-        top: 0px;
-        margin-bottom: 50px;
-    }
     .login{
         width: 350px;
-        height: 500px;
+        height: 400px;
 
         display: flex;
         flex-direction: column;
@@ -73,14 +63,7 @@
 
         background: var(--white);
         border: 2px solid var(--orange);
-    }
-    .login:last-child{
-        border-left: 0px;
-        border-radius: 0px 5px 5px 0px;
-        background-color: var(--orange);
-    }
-    .login:first-child{
-        border-radius: 5px 0px 0px 5px;
+        border-radius: 5px;
     }
     .login div{
         display: flex;
@@ -131,41 +114,50 @@
         font-size: 17px;
         cursor: pointer;
     }
-    @media screen and (max-width: 768px){
-        .admin{
-            flex-direction: column;
-        }
+    @media screen and (max-width: 325px){
         .login{
-            height: 270px;
-        }
-        .login:last-child{
-        border-left: 0px;
-        border-radius: 0px 0px 5px 5px;
-        background-color: var(--orange);
-        }
-        .login:first-child{
-        border-radius: 5px 5px 0px 0px;
-        }
-        .backHome{
-        top: -5px;
-        left: -150px;
-        }
-    }
-    @media screen and (max-width: 375px){
-        .login{
-            width: 300px;
-        }
-        .backHome{
-        left: -130px;
+            width: 310px;
         }
     }
 </style>
 
 <script>
+import axios from 'axios'
+
     export default{
         data() {
-            return {}
+            return {
+                data: {
+                    email: '',
+                    username: '',
+                    password: ''
+                }
+            }
         },
-        methods: {}
+        methods: {
+            isTokenValid(expiration) {
+                if (!expiration) {
+                    return false;
+                }
+                const expirationDate = new Date(expiration);
+                const currentDate = new Date();
+                return currentDate < expirationDate;
+            },
+            async login() {
+                try {
+                    const response = await axios.post('/login', this.data)
+                    localStorage.setItem('username', response.data.user);
+                    localStorage.setItem('accessToken', response.data.access_token);
+                    localStorage.setItem('token_expiration', response.data.expiration)
+
+                    this.isTokenValid(response.data.expiration)
+                    this.$router.push('/admin/dashboard');
+                    this.$toast.info(`Logado com sucesso!`);
+                } catch (error) {
+                    console.error('Erro ao fazer login:', error);
+                    this.$toast.error(error);
+                }
+            }
+        }
     }
 </script>

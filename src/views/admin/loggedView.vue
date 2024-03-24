@@ -2,14 +2,15 @@
     <div class="logged">
         <header>
             <nav>
-                <p>Logged as: Jordan</p>
+                <p>Logged as: {{this.getUser}}</p>
                 <RouterLink to="/">Portfolio</RouterLink>
             </nav>
         </header>
         <main class="content">
             <div class="content-title">
                 <h1>Projects</h1>
-                <button class="btnAdd" @click="InsertProject()">New</button>
+            <NewProject v-show="this.$store.state.isProjectOpen"></NewProject>
+                <button class="btnAdd" @click="this.$store.state.isProjectOpen = true">New</button>
             </div>
                 <TransitionGroup name="list" tag="ul" class="projects-list">
                 <li v-for="(project, index) in GetterProject" :key="index" class="project-grid">
@@ -17,7 +18,6 @@
                         <p>{{ project.title }}</p>
                         <p>{{ project.descript }}</p>
                         <div class="btns">
-                            {{ project.id }}
                             <i class="fa-solid fa-pencil btn"></i>
                             <i class="fa-solid fa-trash btn" @click="DeleteProject(project.id, index)"></i>
                         </div>
@@ -28,38 +28,53 @@
 </template>
 
 <script>
+import NewProject from '../../components/addProjectComponent.vue'
 export default {
   name: 'dashBoard',
-  components: [],
+  components: {NewProject},
   data () {
     return {
-        newProjects: [],
-        newProject: {
-            img: 'teste',
-            title: 'teste',
-            descript: 'teste',
-            url: 'teste',
-            download: 'teste'
-        }
+        user: '',
+        newProjects: []
     }
   },
   methods: {
-    DeleteProject(id, index) {
-        this.$store.commit('DeleteProject', {
-            project_id : id,
-            project_index : index
-        })
-    },
-    InsertProject(){
-        const body = {img: this.newProject.img, title: this.newProject.title, descript: this.newProject.descript, url: this.newProject.url, download: this.newProject.download}
-        this.$store.commit('InsertProject', body)
+    isTokenValid(expiration) {
+        if (!expiration) {
+            return false
+        }
 
+        const expirationDate = new Date(expiration)
+        const currentDate = new Date()
+
+        if (currentDate < expirationDate) {
+            return true
+        } else {
+            return false
+        }
+    },
+    async DeleteProject(id, index) {
+        const isTokenValid = this.isTokenValid(localStorage.getItem('token_expiration'))
+        if (isTokenValid == true) {
+            const response = await this.$store.dispatch('DeleteProject', {project_id : id, project_index : index})
+            if (response.success === true) {
+                this.$toast.success(response.message);
+            }else{
+                this.$toast.error(response.message);
+            }
+        }else {
+            localStorage.removeItem('accessToken');
+            this.$router.push('/admin');
+        }
     }
   },
   computed: {
-    GetterProject () {
+    GetterProject () { 
     return this.$store.state.projects
-  }
+  },
+    getUser(){
+        return localStorage.getItem('username')
+    }
   }
 }
 </script>
@@ -97,6 +112,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 10;
     }
     header nav{
         width: 80%;

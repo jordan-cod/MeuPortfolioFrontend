@@ -203,7 +203,7 @@ export default {
         fetchProject(){
             axios.get(`/projects/${this.id}`)
                 .then(response=>{
-                    this.project = response.data.result
+                    this.project = response.data
                     this.tecnologies = this.project.tecnologies.split(',')
                 })
             }

@@ -201,7 +201,7 @@ export default {
     },
     methods: {
         fetchProject(){
-            axios.get(`https://api.gabrieljordan.me/api/project/${this.id}`)
+            axios.get(`/project/${this.id}`)
                 .then(response=>{
                     this.project = response.data.result
                     this.tecnologies = this.project.tecnologies.split(',')

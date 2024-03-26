@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <h1>4<i class="fas fa-ban"></i>4
         </h1>
         <h2>Page not found.</h2>
@@ -9,7 +9,7 @@
 </template>
 
 <style scoped>
-    div{
+    .container{
         width: 100%;
         height: 100%;
         display: flex;

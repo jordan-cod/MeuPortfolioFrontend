@@ -13,7 +13,7 @@
           <a href="https://www.linkedin.com/in/gabrieljordandev/" target="_blank">
             <i class="fa-brands fa-linkedin-in fa-2xl" style="color: #337eff;"></i>
           </a>
-          <a href="/files/cv.pdf" class="CVDownload" download="">
+          <a href="/files/Gabrie_Jordan_resume.pdf" class="CVDownload">
             <i class="fa-solid fa-file-arrow-down fa-xl"></i>CV
           </a>
         </div>

@@ -4,7 +4,7 @@
         </h1>
         <h2>Page not found.</h2>
         <p>The page you are looking for might have been removed <br> had its name changed or is temporaily unavaible.</p>
-        <RouterLink to="/">GO TO HOMEPAGE</RouterLink>
+        <RouterLink to="/" class="link_to_home">GO TO HOMEPAGE</RouterLink>
     </div>
 </template>
 

@@ -24,7 +24,6 @@ a{
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
-
 body{
     font-family: 'Public Sans';
     width: 100%;
@@ -33,9 +32,28 @@ body{
     background: var(--gray);
 }
 
-div.dark{
+div.dark, div.dark .container{
     color: var(--font-white);
     background: radial-gradient(circle, rgba(20,33,61,1) 0%, rgba(15,25,47,1) 100%);
+}
+div.dark .scrollUp{
+    background: var(--white);
+}
+div.dark .scrollUp i{
+    color: var(--blue);
+}
+div.dark .select-box{
+    color: gray;
+}
+div.dark .container .link_to_home{
+    background: var(--orange);
+    color: var(--black);
+}
+div.dark .container .link_to_home:hover{
+    background: var(--orange-hover);
+}
+div.dark .container .login div h1{
+    color: var(--black) !important;
 }
 div.dark header{
     background: var(--black);

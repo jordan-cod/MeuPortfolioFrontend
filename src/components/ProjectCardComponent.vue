@@ -14,10 +14,10 @@
       <div class="button_link_container">
         <p class="category">{{ project.category }}</p>
         <div>
-          <a :href="project.url" class="button_Link">
+          <a :href="project.url" class="button_Link" target="_blank">
             <i class="fa-solid fa-code"></i>
           </a>
-          <a :href="project.live_url" class="button_Link">
+          <a :href="project.live_url" class="button_Link" target="_blank">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>

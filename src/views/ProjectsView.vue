@@ -195,7 +195,6 @@
     }
     .project-card{
         width: 300px;
-        height: 450px;
         display: flex;
         flex-direction: column;
         align-items: center;

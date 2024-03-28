@@ -51,6 +51,7 @@
 .project-card h3 {
   margin-bottom: 15px;
   font-weight: 500;
+  color: var(--font-black)
 }
 
 .project-card p {
@@ -83,6 +84,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  position: relative;
+  bottom: -15px;
 }
 .button_link_container div{
   display: flex;
@@ -103,6 +106,7 @@
 
 .button_Link i {
   font-size: 20px;
+  color: var(--font-black)
 }
 </style>
 

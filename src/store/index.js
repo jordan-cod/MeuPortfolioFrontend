@@ -6,7 +6,7 @@ const store = createStore({
     state () {
       return {
         isProjectOpen: false,
-        projects: [],
+        projects: [{category: 'teste'}],
         skills: [
           {
             name: 'Html',

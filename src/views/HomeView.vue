@@ -3,7 +3,7 @@
     <section class="about">
       <div class="ME">
         <div>
-          <h1>Hello, my name is Gabriel Jordan.</h1>
+          <h1>👋 &nbsp; Hello, my name is Gabriel Jordan.</h1>
           <h2>A fullStack developer.</h2>
         </div>
         <div class="links">

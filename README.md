@@ -11,7 +11,7 @@ O objetivo deste projeto é criar um espaço onde eu possa mostrar meus projetos
 - [x] Exibição de projetos pessoais e profissionais
 - [x] Detalhes sobre minhas habilidades técnicas
 - [ ] Seção de experiência e educação
-- [x]Informações de contato para potenciais oportunidades de colaboração ou contratação
+- [x] Informações de contato para potenciais oportunidades de colaboração ou contratação
 
 ## Como Executar o Projeto
 
